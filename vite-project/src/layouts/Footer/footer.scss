@@ -1,0 +1,50 @@
+@import '../../assets/styles/variables.scss';
+.footer-container{
+    .footer-up{
+    padding: 3% 1.8%;
+    background-color: #F7F7F7;
+    display: flex;
+    justify-content: center;
+    gap: 74px;
+    }
+    .first-list{
+        width: 25%;
+        p{
+            margin-top: 20px;
+            font-size: 16px;
+            color: $black;
+        }
+    }
+    ul{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    ul li{
+        list-style: none;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    ul li:first-child{
+        font-weight: 600;
+    }
+    .borderFooter{
+        border: 1px solid $borderGrey;
+        width: 300px;
+    }
+    .footer-down{
+        p{
+            font-size: 14px;
+        }
+        padding: 2% 5.5%;
+        background-color: #F1F1F1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .termsOfUse{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+}

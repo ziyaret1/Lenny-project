@@ -1,0 +1,29 @@
+.articleCard-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .lennyArtBtn{
+        background-color: #1D9E341A;
+        border-radius: 8px;
+        font-size: 12px;
+        color: green;
+    }
+    .lennyArtImg-head{
+        p{
+            margin-top: 12px;
+        }
+    }
+    .lennyArtContext{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        h2{
+            font-size: 20px;
+            color: #0B0F0E;
+        }
+    }
+    p{
+        font-size: 16px;
+        color: #818B9C;
+    }
+}

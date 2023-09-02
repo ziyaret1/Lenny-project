@@ -1,0 +1,36 @@
+@import "../../../assets/styles/variables.scss";
+
+.filterCheckBox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  .checkBoxes {
+  }
+  .labelCheckBox {
+    display: flex;
+    align-items: center;
+    color: $iconGrey;
+    gap: 3px;
+    font-size: 16px;
+    input {
+      width: 17px;
+      height: 17px;
+      border: 0.3px solid $iconGrey;
+      border-radius: 10px;
+      accent-color: $iconGrey;
+      .checkbox {
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .boxStar {
+    color: orange;
+    display: flex;
+    align-items: center;
+  }
+  .showAllText {
+    color: $lightGreen;
+    margin-top: 10px;
+  }
+}

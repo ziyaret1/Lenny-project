@@ -1,0 +1,60 @@
+@import '../../../assets/styles/variables.scss';
+
+.searchTitle-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 6%;
+    .showingProd-amounts{
+        
+        h1{
+            font-size: 24px;
+            color: $black;
+        }
+        p{
+            margin-top: 10px;
+            font-size: 16px;
+            color: $iconGrey;
+        }
+    }
+    .sortBy-cont{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        span{
+            font-size: 16px;
+            color: $iconGrey;
+        }
+        select{
+            cursor: pointer;
+            padding: 15px;
+            outline: none;
+            border-color: $borderGrey;
+            border-radius: 10px;
+            color: black;
+            font-weight: 500;
+            font-size: 14px;
+            
+        }
+        .gridIcon{
+            border: 1px solid $darkGreen;
+            border-radius: 10px;
+            width: 46px;
+            height: 46px;
+            padding: 5px;
+            background-color: $darkGreen;
+            color: white;
+            cursor: pointer;
+        }
+        .hamburgIcon{
+            border: 1px solid $borderGrey;
+            border-radius: 10px;
+            width: 46px;
+            height: 46px;
+            padding: 5px;
+            background-color: white;
+            color: $black;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+@import '../../assets/styles/variables.scss';
+.header-container{
+    padding: 1.5% 2%; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .input-nav{
+        width: 58%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #F6F8FA;
+        background-color: #F6F8FA;
+        border-radius: 11px;
+        padding: 5px 8px;
+        .inputs {
+           
+            input{
+                margin-left: 20px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                font-size: 18px;
+            }
+            select{
+                border: none;
+                outline: none;
+                background-color: transparent;
+                cursor: pointer;
+                font-size: 18px;
+                option{
+                    outline: none;
+                    background-color: #F6F8FA;
+                }
+            }
+        }
+        .search{
+            width: 30px;
+            height: 30px;
+            color: $iconGrey;
+            cursor: pointer;
+        }
+    }
+    .basket-user{
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        .notification{
+            width: 35px;
+            height: 35px;
+            color: $iconGrey;
+            cursor: pointer;
+        }
+        .postLetter{
+            width: 35px;
+            height: 35px;
+            color:  $iconGrey;
+            cursor: pointer;
+        }
+        .basket{
+         width: 35px;
+         height: 35px;
+         color:  $iconGrey;
+         cursor: pointer;
+         }
+         .borderHead{
+            border: 1px solid $borderGrey;
+            height: 30px;
+         }
+         .user{
+         width:38px;
+         height: 38px;
+         border: 2px solid #F6F8FA;
+         border-radius: 100%;
+         padding: 2px;
+         color:  $iconGrey;
+         cursor: pointer;  
+         }
+    }
+    
+}
+

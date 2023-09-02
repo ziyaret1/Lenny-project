@@ -1,0 +1,71 @@
+@import "../../assets/styles/variables.scss";
+
+.productCard-container {
+  border: 0, 1px solid transparent;
+  background-color: white;
+  border-radius: 8px;
+  .popProdContext {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 12px;
+  }
+
+  .popProdImage {
+    background-color: $prodBackGrey;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    padding: 10% 0;
+
+    .heartIcon {
+      position: absolute;
+      border: 1px solid white;
+      width: 43px;
+      height: 43px;
+      background-color: white;
+      border-radius: 100%;
+      padding: 10px;
+    }
+  }
+  .prodName-owner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    .popProdName {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .popProdOwner {
+      p {
+        font-size: 16px;
+        color: $iconGrey;
+      }
+    }
+    .prodName {
+      font-size: 18px;
+      color: black;
+    }
+    .prodAmount {
+      font-size: 18px;
+      color: $lightGreen;
+    }
+  }
+  .popProdFooter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    .prodStar {
+      color: #ffa439;
+    }
+    .prodDot {
+      color: #e4e9ee;
+    }
+    p {
+      font-size: 16px;
+      color: #0b0f0e;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets//styles/mixin.scss';
+
+.showRoute-container{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 3% 6%;
+    p{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .greenP{
+        color: $lightGreen;
+        cursor: pointer;
+    }
+    .arrowRight{
+        color: $iconGrey;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,19 @@
+.featuredCategory-container{
+    padding: 3% 6%;
+    .features-head{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .features-footer{
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+    .iconSize{
+        width: 42px;
+        height: 50px;
+    }
+}

@@ -1,0 +1,72 @@
+@import "../../../assets/styles/variables.scss";
+
+.fullContainer {
+  padding: 2% 2% 3% 5%;
+  width: 26%;
+  .boxTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .filterOption-cont {
+    border: 1px solid $borderGrey;
+    border-radius: 12px;
+    width: 100%;
+    padding: 20px;
+    .filterBoxCont {
+    }
+    .borderBottom {
+      border: 1px solid $borderGrey;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+  .selectChange{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    .changeInput{
+        border: 1px solid $borderGrey;
+        border-radius: 9px;
+        padding: 11px 10px;
+        form{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            select{
+            border: none;
+            outline: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        input{
+            width: 130px;
+            border: none;
+            outline: none;
+            color: $iconGrey;
+            font-size: 16px;
+        }
+        .borderForChange{
+            border: 1px solid $borderGrey;
+            height: 22px;
+        }}  
+    }
+   
+  }
+  .changeButtons{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    button{
+        background-color: transparent;
+        border: 1px solid $borderGrey;
+        border-radius: 9px;
+        padding: 11px 10px;
+        color: $black;
+        font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.homeTitle-container{
+    background-image: url('../../../assets//images//home-backgrn-image.png');
+    background-color: #F7F7F7;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    padding: 5% 6% 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header-left{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 50%;
+        h1{
+            font-size: 48px;
+            font-weight: 600;
+            color: #0B0F0E;
+        }
+        p{
+            font-size: 18px;
+            color: #818B9C;
+            line-height: 30px;
+            
+        }
+        .header-buttons{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+    .header-right{
+        .rightArrow{
+            border: 1px solid white;
+            background-color: white;
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+    }
+}

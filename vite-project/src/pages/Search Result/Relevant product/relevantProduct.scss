@@ -1,0 +1,12 @@
+@import '../../../assets/styles/variables.scss';
+
+    .relevantProducts-container{
+        width: 76%;
+        padding: 2% 5% 3% 2%;
+        .relevantProductList{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+    }
+   

@@ -1,0 +1,16 @@
+@import './variables.scss';
+
+@mixin flex($justify: null, $align: null, $gap: null, $flexDirection: null){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+    flex-direction: $flexDirection;
+}
+
+@mixin grid($column: null, $row: null, $gap: null){
+    display: grid;
+    grid-template-columns: $column;
+    grid-template-rows: $row;
+    gap: $gap;
+}

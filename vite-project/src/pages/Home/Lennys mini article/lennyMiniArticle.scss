@@ -1,0 +1,14 @@
+.lennyMiniArticle-container{        
+    padding: 6% 5%;
+        .lennyArtHeader{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3%
+        }
+        .lennyArtCards{
+            align-items: center;
+            display: flex;
+            gap: 14px;
+        }
+}
