@@ -1,12 +1,13 @@
 import './header.scss'
 import logo from '../../assets/images/Home-logo.png'
 import { CiSearch } from "react-icons/ci";
-import {HiShoppingCart} from "react-icons/hi"
-import {BiSolidUser} from "react-icons/bi"
-// import {IoMdNotifications} from 'react-icons/io'
-// import {MdLocalPostOffice} from 'react-icons/md'
+// import {BiSolidUser} from "react-icons/bi"
+import shoppingCart from '../../assets/icons/shopping-cart.png'
+import notification from '../../assets/icons/notification.png'
+import message from '../../assets/icons/sms.png'
+import userPhoto from '../../assets/images/profilePhoto.png'
 
-export const Header = () => {
+const Header = () => {
   return (
     <div className="header-container">
      <div className="logo">
@@ -30,12 +31,15 @@ export const Header = () => {
         </div>
      </div>
      <div className="basket-user">
-        {/* <IoMdNotifications className='notification'/>
-        <MdLocalPostOffice className="postLetter"/> */}
-        <HiShoppingCart className='basket'/>
+        <img src={shoppingCart} className='basket' alt="" />
+        <img src={notification} className='notification' alt="" />
+        <img src={message} className="message" alt="" />
         <div className="borderHead"></div>
-        <BiSolidUser className='user'/>
+        {/* <BiSolidUser className='user'/> */}
+        <img src={userPhoto} className='userPhoto' alt="" />
      </div>
     </div>
   )
 }
+
+export default Header

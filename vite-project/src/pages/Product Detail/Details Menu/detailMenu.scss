@@ -1,0 +1,23 @@
+@import "../../../assets/styles/variables.scss";
+
+.detailMenu-container {
+  padding: 2% 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .menu-cont {
+    display: flex;
+    align-items: center;
+    gap: 33px;
+    p {
+      color: $iconGrey;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+
+  .borderBottom {
+    border: 1px solid $darkGreen;
+    width: 100%;
+  }
+}

@@ -1,14 +1,15 @@
 import './featuresCard.scss'
 
-const FeaturedCards = ({fIcon, fText, fParag}) => {
+// eslint-disable-next-line react/prop-types
+const FeaturedCards = ({fIcon, fText}) => {
+
+
   return (
     <div className='featuredCard-container'>
         <div className="featuresCards">
-        <icon className="featuresIcon">
-            {fIcon}
-        </icon>
+        <img src={`${import.meta.env.VITE_UPLOAD_IMAGE}${fIcon}`} alt="" />
         <h1>{fText}</h1>
-        <p>{fParag}</p>
+        <p>8,9k products</p>
     </div>
     </div>
   )

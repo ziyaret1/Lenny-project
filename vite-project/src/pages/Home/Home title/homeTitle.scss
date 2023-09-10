@@ -1,44 +1,75 @@
-.homeTitle-container{
-    background-image: url('../../../assets//images//home-backgrn-image.png');
-    background-color: #F7F7F7;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
-    padding: 5% 6% 8%;
+@import '../../../assets/styles/variables.scss';
+
+.homeTitle-container {
+  background-image: url("../../../assets//images//home-backgrn-image.png");
+  background-color: #f7f7f7;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  padding: 5% 5% 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .header-left {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .header-left{
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        width: 50%;
-        h1{
-            font-size: 48px;
-            font-weight: 600;
-            color: #0B0F0E;
-        }
-        p{
-            font-size: 18px;
-            color: #818B9C;
-            line-height: 30px;
-            
-        }
-        .header-buttons{
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
+    flex-direction: column;
+    gap: 30px;
+    width: 50%;
+    h1 {
+      font-size: 48px;
+      font-weight: 600;
+      color: $black;
     }
-    .header-right{
-        .rightArrow{
-            border: 1px solid white;
-            background-color: white;
-            width: 50px;
-            height: 50px;
-            padding: 10px;
-            border-radius: 100%;
-            cursor: pointer;
-        }
+    p {
+      font-size: 18px;
+      color: $iconGrey;
+      line-height: 30px;
     }
+    .header-buttons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+  .header-right {
+   position: relative;
+
+   .productCard-container {
+    border: 0,1px solid transparent;
+    background-color: white;
+    border-radius: 8px; 
+    margin-right: 300px;
+    margin-top: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .prodCardCont {
+      width: 220px;
+      height: 310px;
+      
+    }
+    .popProdContext {
+      display: flex;
+      flex-direction: column;
+      margin-top: 6px;
+      gap: 6px;
+      padding: 10px;
+    }
+    .popProdImage {
+      background-color: $prodBackGrey;
+      border-radius: 8px;
+      position: relative;
+      text-align: center;
+      padding: 5% 0;
+    }
+    .heart {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      border: 1px solid white;
+      background-color: white;
+      border-radius: 100%;
+      padding: 8px;
+    }
+  }
+   
+  }
 }

@@ -1,0 +1,124 @@
+@import "../../assets/styles/variables.scss";
+
+.signOut-container {
+  border: 1px solid $borderGrey;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 9px;
+  background-color: white;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+
+  .userInfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .userName {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      h3 {
+        font-size: 20px;
+        color: $black;
+      }
+      p {
+        font-size: 16px;
+        color: $iconGrey;
+      }
+    }
+  }
+  .bottomBorder {
+    border: 1px solid $borderGrey;
+    width: auto;
+  }
+  .wallet-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .contTitle {
+      font-size: 16px;
+      color: $iconGrey;
+      font-weight: 500;
+    }
+    .balance {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .balanceTitle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        span {
+          color: $iconGrey;
+          font-size: 16px;
+        }
+      }
+      .balanceAmount {
+        font-weight: 500;
+      }
+    }
+    .coins {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .coinsTitle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        span {
+          color: $iconGrey;
+          font-size: 16px;
+        }
+      }
+      .coinAmount {
+        font-weight: 500;
+      }
+    }
+  }
+
+  .menu-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .contTitle {
+      font-size: 16px;
+      color: $iconGrey;
+      font-weight: 500;
+    }
+    .purchase {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      p {
+        color: $iconGrey;
+      }
+    }
+    .wishlist {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      p {
+        color: $iconGrey;
+      }
+    }
+    .setting {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      p {
+        color: $iconGrey;
+      }
+    }
+  }
+  .logOut {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p {
+      color: red;
+      font-weight: 500;
+    }
+  }
+}

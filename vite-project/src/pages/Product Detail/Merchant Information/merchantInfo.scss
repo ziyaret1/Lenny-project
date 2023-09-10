@@ -1,0 +1,74 @@
+@import "../../../assets/styles/variables.scss";
+
+.merchantInfo-container {
+  padding: 2% 5%;
+  .merchant-infos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -20px;
+    .infoAndName-cont {
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-left: -14%;
+      }
+      .merch-information {
+        margin-left: -10%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        h3{
+            font-size: 18px;
+        }
+        p {
+          font-size: 16px;
+          color: $iconGrey;
+        }
+        .bestMerchants {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          span {
+            border: 1px solid #1d9e341a;
+            background-color: #1d9e341a;
+            color: $lightGreen;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+
+    .merchantsButtons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      button {
+        width: auto;
+        height: 50px;
+        border-radius: 8px;
+        border: 1px solid $darkGreen;
+        font-size: 16px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        gap: 5px;
+      }
+      .merchantIcon {
+        width: 26px;
+        height: 26px;
+        color: $darkGreen;
+      }
+    }
+  }
+  .borderBottom{
+    border: 1px solid $borderGrey;
+    width: auto;
+  }
+}

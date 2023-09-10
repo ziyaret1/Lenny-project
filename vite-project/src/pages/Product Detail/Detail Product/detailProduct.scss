@@ -1,0 +1,92 @@
+@import "../../../assets/styles/variables.scss";
+
+.detailProduct-container {
+  padding: 0 5% 1%;
+  .prodname-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    p {
+      font-size: 16px;
+      color: $iconGrey;
+      width: 70%;
+      line-height: 27px;
+    }
+  }
+  .prodInfos-cont {
+    display: flex;
+    padding: 2% 0;
+    gap: 40px;
+    .specification-cont {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      width: 350px;
+      .infoDetail {
+        .infos {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          padding: 13px 5px;
+          p {
+            width: 170px;
+            color: $iconGrey;
+            font-size: 16px;
+          }
+          h4 {
+            width: 200px;
+            font-weight: 500;
+          }
+        }
+        .bcground {
+          background-color: #f7f7f7;
+        }
+      }
+    }
+    .inTheBox-cont {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      width: 370px;
+      .checkedDetails {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        .checkedDetail {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          h4 {
+            font-size: 14px;
+            font-weight: 500;
+          }
+          .checkedCircleIcon {
+            color: $lightGreen;
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+
+    .systemRequired-cont {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      .systemsInfo{
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+      }
+      p {
+        color: $iconGrey;
+        font-size: 16px;
+      }
+    }
+  }
+  .borderBottom{
+    border: 1px solid $borderGrey;
+    width: auto;
+    margin-top: 20px;
+  }
+}

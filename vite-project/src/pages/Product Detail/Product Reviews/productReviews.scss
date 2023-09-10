@@ -1,0 +1,11 @@
+@import "../../../assets/styles/variables.scss";
+
+.productReviews-container {
+    padding: 0 5%;
+    .filter-list{
+        display: flex;
+    }
+    .borderBottom{
+        border: 1px solid $borderGrey;
+    }
+}

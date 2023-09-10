@@ -1,0 +1,25 @@
+@import "../../../../assets/styles/variables.scss";
+
+.ratingDetails-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  .ratingAmount {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    .star {
+      color: #ffa439;
+    }
+  }
+  .ratingImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .ratingScores{
+    display: flex;
+    justify-content: center;
+  }
+}

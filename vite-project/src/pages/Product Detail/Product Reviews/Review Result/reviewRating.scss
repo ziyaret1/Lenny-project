@@ -1,0 +1,37 @@
+@import "../../../../assets/styles/variables.scss";
+
+.reviewRating-container{
+    .ratingScore {
+      border: 1px solid $borderGrey;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      .ratingScore-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .ratingStars {
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          .ratingStar {
+            color: #ffa439;
+          }
+        }
+        .stars-text {
+          display: flex;
+          flex-direction: column;
+          gap: 11px;
+        }
+      }
+  
+      .ratingScore-right{
+          display: flex;
+          flex-direction: column;
+          gap: 13px;
+      }
+    }
+}

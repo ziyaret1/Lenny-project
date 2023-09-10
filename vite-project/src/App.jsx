@@ -1,22 +1,13 @@
-import Footer from "./layouts/Footer/Footer"
-import { Header } from "./layouts/Header/Header"
-// import Home from "./pages/Home/Home"
-import SearchResult from "./pages/Search Result/SearchResult"
+// import { Header } from "./layouts/Header/Header";
+// import Footer from "./layouts/Footer/Footer";
+// import Home from '../src/pages/Home/Home'
+import Routers from './routers/Routers'
 
-
-
-function App() {
-  
-
+const App = () => {
   return (
     <>
-    <Header/>
-    {/* <Home/> */}
-    <SearchResult/>
-    <Footer/>
-
-    
-    </>
+    <Routers/>
+     </>
   )
 }
 
