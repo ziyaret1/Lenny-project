@@ -1,0 +1,44 @@
+@import '../../../assets/styles/variables.scss';
+
+.fullDiv{
+    .breadCrumb-container{
+    background-color: #f7f7f7;
+    padding: 3% 5% 12% 5%;
+}
+.articleDetails-container{
+    padding: 6% 6%;
+    margin-top: -11%;
+    width: 100%;
+    .articleDetail-Image{
+        img{
+            border-radius: 12px;
+            width: 100%;
+            height: 500px;
+        }
+    }
+    .relatedArticle-articleDetails{
+        display: flex;
+        gap: 30px;
+        padding: 3% 0;
+        .relatedArt{
+            width: 26%;
+        }
+        .articleTitle-description{
+            width: 74%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            h2{
+                font-size: 32px;
+                color: $black;
+                line-height: 40px;
+                width: 94%;
+            }
+            p{
+                font-size: 18px;
+                color: $iconGrey;
+            }
+        }
+    }
+}
+}

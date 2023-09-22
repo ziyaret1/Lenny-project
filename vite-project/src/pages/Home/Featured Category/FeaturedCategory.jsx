@@ -5,9 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
-
 import React, { useState } from "react";
 import { getCategories } from "../../../api/product";
+import { Link } from "react-router-dom";
 
 const FeaturedCategory = () => {
   const [categories, setCategories] = useState([]);
@@ -37,28 +37,32 @@ const FeaturedCategory = () => {
       >
         <SwiperSlide className="swiperScrol">
           <div className="features-footer">
-            {categories?.data?.map(({ id, attributes }) => {
-              return (
-                <FeaturedCards
-                  key={id}
-                  fIcon={attributes?.image?.data?.attributes?.url}
-                  fText={attributes.title}
-                />
-              );
-            })}
+            <Link className="features-footer" to="/searchres">
+              {categories?.data?.map(({ id, attributes }) => {
+                return (
+                  <FeaturedCards
+                    key={id}
+                    fIcon={attributes?.image?.data?.attributes?.url}
+                    fText={attributes.title}
+                  />
+                );
+              })}
+            </Link>
           </div>
         </SwiperSlide>
         <SwiperSlide className="swiperScrol">
           <div className="features-footer">
-            {categories?.data?.map(({ id, attributes }) => {
-              return (
-                <FeaturedCards
-                  key={id}
-                  fIcon={attributes?.image?.data?.attributes?.url}
-                  fText={attributes.title}
-                />
-              );
-            })}
+            <Link className="features-footer" to="/searchres">
+              {categories?.data?.map(({ id, attributes }) => {
+                return (
+                  <FeaturedCards
+                    key={id}
+                    fIcon={attributes?.image?.data?.attributes?.url}
+                    fText={attributes.title}
+                  />
+                );
+              })}
+            </Link>
           </div>
         </SwiperSlide>
       </Swiper>

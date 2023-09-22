@@ -10,7 +10,7 @@ const SignUp = () => {
         <div className="signUpInput">
         <form>
                 <label htmlFor="">Name</label>
-                <input type="text" placeholder='Enter your phone name'/>
+                <input type="text" placeholder='Enter your name'/>
             </form>
             <form>
                 <label htmlFor="">Phone Number or Email</label>

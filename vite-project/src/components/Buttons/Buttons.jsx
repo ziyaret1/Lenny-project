@@ -5,7 +5,7 @@ const Buttons = ({img, color, textColor, text}) => {
 
   return (
 <div className='buttons'>
-        <button className='buttonsStyle' style={{backgroundColor:`${color}`, color: `${textColor}`}}>
+        <button className='buttonStyle' style={{backgroundColor:`${color}`, color: `${textColor}`}}>
             {
                 img ?  <icon className="buttonIcon">{img}</icon> : ""
             }
@@ -16,5 +16,3 @@ const Buttons = ({img, color, textColor, text}) => {
 
 export default Buttons
 
-//! add style icon
-{/* <Buttons img={<AiTwotoneCreditCard style={{width:30, height:30}}/>} text="Add to Chart"/> */}

@@ -12,10 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "text"
     },
     "price": {
@@ -38,7 +38,7 @@
         "green"
       ]
     },
-    "Type": {
+    "type": {
       "type": "enumeration",
       "enum": [
         "Wireless",
@@ -46,7 +46,7 @@
         "Premium"
       ]
     },
-    "images": {
+    "image": {
       "type": "media",
       "multiple": true,
       "required": false,

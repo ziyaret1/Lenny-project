@@ -1,50 +1,60 @@
-@import '../../assets/styles/variables.scss';
-.footer-container{
-    .footer-up{
-    padding: 3% 1.8%;
-    background-color: #F7F7F7;
-    display: flex;
-    justify-content: center;
-    gap: 74px;
-    }
-    .first-list{
-        width: 25%;
-        p{
-            margin-top: 20px;
-            font-size: 16px;
-            color: $black;
+@import "../../assets/styles/variables.scss";
+
+.footerFullCont {
+  .footer-container {
+    background-color: #f7f7f7;
+    padding: 2% 5%;
+    .footer-up {
+      padding: 3% 0;
+      display: flex;
+      justify-content: space-between;
+      
+      .first-list {
+        width: 30%;
+        p {
+          margin-top: 20px;
+          font-size: 17px;
+          line-height: 25.6px;
+          color: $black;
         }
-    }
-    ul{
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
-    ul li{
-        list-style: none;
-        font-size: 14px;
-        cursor: pointer;
-    }
-    ul li:first-child{
-        font-weight: 600;
-    }
-    .borderFooter{
-        border: 1px solid $borderGrey;
-        width: 300px;
-    }
-    .footer-down{
-        p{
-            font-size: 14px;
-        }
-        padding: 2% 5.5%;
-        background-color: #F1F1F1;
+      }
+      .footer-lists {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        .termsOfUse{
-            display: flex;
-            align-items: center;
-            gap: 20px;
+        width: 64%;
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
         }
+        ul li {
+          list-style: none;
+          font-size: 15px;
+          cursor: pointer;
+          line-height: 18.6px;
+        }
+        ul li:first-child {
+          font-weight: 600;
+        }
+        .borderFooter {
+          border: 1px solid $borderGrey;
+        }
+      }
     }
+  }
+  .footer-down {
+    padding: 2% 5%;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      font-size: 15px;
+    }
+    .termsOfUse {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+  }
 }

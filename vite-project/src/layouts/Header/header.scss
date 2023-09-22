@@ -1,11 +1,12 @@
 @import "../../assets/styles/variables.scss";
+
 .header-container {
   padding: 1.5% 2%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   .input-nav {
-    width: 60%;
+    width: 61%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,23 +15,33 @@
     border-radius: 11px;
     padding: 4px 8px;
     .inputs {
-      input {
-        width: 300px;
-        margin-left: 20px;
-        border: none;
-        outline: none;
-        background-color: transparent;
-        font-size: 18px;
-      }
-      select {
-        border: none;
-        outline: none;
-        background-color: transparent;
-        cursor: pointer;
-        font-size: 18px;
-        option {
+      form {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .borderRight {
+          border: 1px solid $borderGrey;
+          height: 23px;
+        }
+        input {
+          width: 300px;
+          border: none;
           outline: none;
-          background-color: #f6f8fa;
+          background-color: transparent;
+          font-size: 18px;
+          font-weight: 500;
+        }
+        select {
+          border: none;
+          outline: none;
+          background-color: transparent;
+          cursor: pointer;
+          font-size: 18px;
+          font-weight: 500;
+          option {
+            outline: none;
+            background-color: #f6f8fa;
+          }
         }
       }
     }
@@ -50,6 +61,7 @@
     display: flex;
     gap: 30px;
     align-items: center;
+    text-decoration: none;
     .notification {
       color: $iconGrey;
       cursor: pointer;
@@ -61,6 +73,24 @@
     .basket {
       color: $iconGrey;
       cursor: pointer;
+      position: relative;
+    }
+    .productInCart {
+      position: absolute;
+      border: 2px solid white;
+      border-radius: 100%;
+      background-color: #e04124;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-weight: 500;
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+      margin-left: 13px;
+      margin-bottom: 20px;
     }
     .borderHead {
       border: 1px solid $borderGrey;
@@ -79,5 +109,11 @@
       width: 48px;
       height: 48px;
     }
+  }
+  .signUp {
+    position: fixed;
+    top: 7%;
+    left: 35%;
+    z-index: 10;
   }
 }

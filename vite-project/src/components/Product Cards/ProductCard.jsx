@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import "./productCard.scss";
 import { PiHeart } from "react-icons/pi";
 
 const ProductCard = ({
   prodImage,
+  prodImage2,
   prodName,
   prodAmount,
   prodOwner,
@@ -15,10 +17,17 @@ const ProductCard = ({
     <div className="productCard-container">
       <div className="prodCardCont">
         <div className="popProdImage">
-          <div className="heartIcon"><PiHeart className="heart" /></div>
-        
-          <img src={prodImage} alt="" />
+          <div className="heartIcon">
+            <PiHeart className="heart" />
+          </div>
           
+          {
+            prodImage ? <img
+            src={`${import.meta.env.VITE_UPLOAD_IMAGE}${prodImage}`}
+            alt=""
+          /> : <img src={prodImage2} alt="" />
+          }
+         
         </div>
         <div className="popProdContext">
           <div className="prodName-owner">

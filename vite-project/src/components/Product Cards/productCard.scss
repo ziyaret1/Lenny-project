@@ -1,11 +1,11 @@
 @import "../../assets/styles/variables.scss";
 
 .productCard-container {
-  border: 0,1px solid transparent;
+  border: 0, 1px solid transparent;
   background-color: white;
   border-radius: 8px;
-  .prodCardCont{
-   width: 280px;
+  .prodCardCont {
+    width: 280px;
     height: 400px;
   }
   .popProdContext {
@@ -21,23 +21,22 @@
     position: relative;
     text-align: center;
     padding: 10% 0;
-    img{
+    img {
       width: 180px;
       height: 180px;
     }
-    .heartIcon{
-       .heart {
-      width: 43px;
-      height: 43px;
-      position: absolute;
-      border: 1px solid white;
-      background-color: white;
-      border-radius: 100%;
-      padding: 8px;
-      right: 10px;
+    .heartIcon {
+      .heart {
+        width: 43px;
+        height: 43px;
+        position: absolute;
+        border: 1px solid white;
+        background-color: white;
+        border-radius: 100%;
+        padding: 8px;
+        right: 10px;
+      }
     }
-    }
-   
   }
   .prodName-owner {
     display: flex;

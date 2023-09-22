@@ -6,7 +6,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
-  padding: 5% 5% 8%;
+  padding: 8% 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,9 +14,9 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    width: 50%;
+    width: 53%;
     h1 {
-      font-size: 48px;
+      font-size: 58px;
       font-weight: 600;
       color: $black;
     }
@@ -33,17 +33,65 @@
   }
   .header-right {
    position: relative;
-
+   .stickers{
+    position: absolute;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 16%;
+    gap: 3px;
+   }
    .productCard-container {
     border: 0,1px solid transparent;
     background-color: white;
     border-radius: 8px; 
-    margin-right: 300px;
-    margin-top: 150px;
+    margin-right: 270px;
+    margin-top: 80px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .prodName-owner {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .popProdName {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .popProdOwner {
+        p {
+          font-size: 14px;
+          color: $iconGrey;
+        }
+      }
+      .prodName {
+        font-size: 16px;
+        color: $black;
+      }
+      .prodAmount {
+        font-size: 16px;
+        color: $lightGreen;
+      }
+    }
+    .popProdFooter {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      .prodStar {
+        color: #ffa439;
+      }
+      .prodDot {
+        color: #e4e9ee;
+      }
+      p {
+        font-size: 15px;
+        color: $black;
+      }
+    }
     .prodCardCont {
-      width: 220px;
-      height: 310px;
+      width: 180px;
+      height: 240px;
       
     }
     .popProdContext {
@@ -59,15 +107,22 @@
       position: relative;
       text-align: center;
       padding: 5% 0;
-    }
-    .heart {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      border: 1px solid white;
-      background-color: white;
-      border-radius: 100%;
-      padding: 8px;
+      img{
+        width: 120px;
+        height: 120px;
+      }
+      .heartIcon{
+        .heart {
+       width: 38px;
+       height: 38px;
+       position: absolute;
+       border: 1px solid white;
+       background-color: white;
+       border-radius: 100%;
+       padding: 8px;
+       right: 10px;
+     }
+     }
     }
   }
    

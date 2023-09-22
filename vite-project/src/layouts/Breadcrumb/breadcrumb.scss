@@ -1,0 +1,26 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets//styles/mixin.scss";
+
+.breadCrumb-container {
+  padding: 2% 5%;
+  display: flex;
+  align-items: center;
+  .breadcrumb-not-active {
+    color: $black;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb-active {
+    color: $lightGreen;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .breadcrumb-arrow {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+  }
+}

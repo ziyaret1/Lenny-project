@@ -1,0 +1,11 @@
+@import "../../../assets/styles/variables.scss";
+
+.articleList-container {
+  padding: 2% 5%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px;
+  .articleLink {
+    text-decoration: none;
+  }
+}

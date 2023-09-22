@@ -1,6 +1,5 @@
-import React from 'react'
 import SearchTitle from './Search Title/SearchTitle'
-import ShowRoute from '../../layouts/Showing Route way/ShowRoute'
+import Breadcrumb from '../../layouts/Breadcrumb/Breadcrumb'
 import FilterOption from './Filter option/FilterOption'
 import RelevantProducts from './Relevant product/RelevantProducts'
 import './searchResult.scss'
@@ -8,7 +7,7 @@ import './searchResult.scss'
 const SearchResult = () => {
   return (
     <div>
-        <ShowRoute/>
+        <Breadcrumb/>
         <SearchTitle/>
         <div className="div">
         <FilterOption/>

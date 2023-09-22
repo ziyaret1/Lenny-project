@@ -1,0 +1,53 @@
+@import "../../../assets/styles/variables.scss";
+
+.articleCard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  .articleCard-img {
+    img {
+      border-radius: 12px;
+      width: 384px;
+      height: 260px;
+    }
+  }
+  .articleCard-readers {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1d9e34;
+      background-color: #1d9e341a;
+      padding: 7px;
+      border-radius: 4px;
+    }
+    span {
+      font-size: 14px;
+      color: $iconGrey;
+    }
+  }
+  .articleCard-title {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: $black;
+    h3 {
+      width: 70%;
+      font-size: 20px;
+    }
+    p {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .link{
+      text-decoration: none;
+      color: $black;
+    }
+  }
+}

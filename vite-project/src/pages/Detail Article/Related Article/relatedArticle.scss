@@ -1,0 +1,40 @@
+@import "../../../assets/styles/variables.scss";
+
+.relatedArticle-container {
+  border: 1px solid $borderGrey;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  .relatedArticles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+    }
+  }
+  .borderBottom {
+    border: 1px solid $borderGrey;
+  }
+  .relatedArtFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .sharetoIcon {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+}

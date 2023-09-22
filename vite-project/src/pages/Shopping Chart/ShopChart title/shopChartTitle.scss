@@ -1,0 +1,42 @@
+@import '../../../assets/styles/variables.scss';
+
+.shopChartTitle-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4% 5% 9%;
+    background-color: #F7F7F7;
+    .cardHead-title{
+        
+        h1{
+            font-size: 24px;
+            color: $black;
+        }
+        p{
+            margin-top: 10px;
+            font-size: 16px;
+            color: $iconGrey;
+        }
+    }
+    .cardSortBy{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        span{
+            font-size: 16px;
+            color: $iconGrey;
+        }
+        select{
+            background-color: transparent;
+            cursor: pointer;
+            padding: 12px;
+            outline: none;
+            border-color: $borderGrey;
+            border-radius: 10px;
+            color: black;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+    }
+}

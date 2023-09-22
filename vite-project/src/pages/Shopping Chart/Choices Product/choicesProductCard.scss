@@ -1,0 +1,84 @@
+@import "../../../assets/styles/variables.scss";
+
+.choicesProductCard-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 0 20px;
+  .choiceCheckBox {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    input {
+      width: 17px;
+      height: 17px;
+      border: 0.3px solid $iconGrey;
+      border-radius: 10px;
+      accent-color: $iconGrey;
+      cursor: pointer;
+    }
+    .products {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      img {
+        width: 80px;
+        height: 80px;
+        background-color: #f6f6f6;
+        border-radius: 8px;
+        padding: 15px;
+      }
+      .productPrise {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        p {
+          font-size: 14px;
+          color: $iconGrey;
+        }
+        h3 {
+          color: $lightGreen;
+        }
+      }
+    }
+  }
+
+  .productCount-deleteBin {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    .product-count {
+      border: 1px solid $borderGrey;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+      span {
+        font-weight: 500;
+        font-size: 18px;
+      }
+      .minus {
+        color: $iconGrey;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .plus {
+        font-size: 20px;
+        color: $lightGreen;
+        cursor: pointer;
+      }
+    }
+    .delete-bin {
+      border: 1px solid $borderGrey;
+      border-radius: 8px;
+      padding: 10px;
+      .trash {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
