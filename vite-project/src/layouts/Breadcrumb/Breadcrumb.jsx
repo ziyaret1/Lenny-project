@@ -19,8 +19,8 @@ const Breadcrumb = () => {
         Search Result
       </Link>
       <span className="breadcrumb-arrow"><LiaAngleRightSolid/></span>
-      <Link to="/productdetail"
-        className={location.pathname === "/productdetail" ? "breadcrumb-active" : "breadcrumb-not-active"}
+      <Link to="/productdetail/:productId"
+        className={location.pathname === "/productdetail/:productId" ? "breadcrumb-active" : "breadcrumb-not-active"}
       >
         Product Detail
       </Link>

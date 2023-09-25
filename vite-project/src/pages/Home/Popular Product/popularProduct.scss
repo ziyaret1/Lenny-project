@@ -17,10 +17,10 @@
     }
   }
   .popProductCards {
-    margin-top: 3%;
+    padding: 4% 0 1%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
+    grid-gap: 8px;
     text-decoration: none;
   }
   .prodViewBtn {

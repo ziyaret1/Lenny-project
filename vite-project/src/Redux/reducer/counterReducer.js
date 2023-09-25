@@ -7,7 +7,7 @@ const initialState = {
 export const counterReducer = createSlice({
   name: 'counter',
   initialState,
-  reducers: { // mentiq daima buraya yazilir, asagidakilar action`dir
+  reducers: { // Sinxron function`lar bura yazilir, mentiq daima buraya yazilir, asagidakilar action`dir
   },
 })
 

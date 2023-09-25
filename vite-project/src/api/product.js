@@ -18,6 +18,14 @@ export const getLimitedProduct = async (limit) =>{
     return res3.data
 }
 
+//! GET PRODUCT BY CATEGORY ID
+export const getProductByCategoryId = async (id) =>{
+    const res4 = await instance.get(`/products?populate=*&[filters][categories][id][$eq]=${id}`)
+    return res4.data
+}
+
+
+
 
 
 

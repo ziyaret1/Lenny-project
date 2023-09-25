@@ -7,15 +7,21 @@ import ProductDetail from "../pages/Product Detail/ProductDetails"
 import ShoppingChart from "../pages/Shopping Chart/ShoppingChart"
 import Article from "../pages/Article/Article"
 import DetailArticle from "../pages/Detail Article/DetailArticle"
+import React from "react"
 
 function Routers() {
+
+  React.useEffect(()=>{
+    window.scrollTo(0, 0);
+  }, [])
+
   return (
     <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/searchres" element={<SearchResult />} />
-        <Route path="/productdetail" element={<ProductDetail />} />
+        <Route path="/searchres/:categoryId" element={<SearchResult />} />
+        <Route path="/productdetail/:productId" element={<ProductDetail />} />
         <Route path="/shopcard" element={<ShoppingChart />} />
         <Route path="/article" element={<Article />} />
         <Route path="/detailarticle" element={<DetailArticle/>}/>

@@ -3,6 +3,19 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Clash Grotesk", sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: transparent;
+  *::-webkit-scrollbar {
+    width: 3px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 20px;
+    border: 3px solid green;
+  }
 }
 body {
   width: 100%;

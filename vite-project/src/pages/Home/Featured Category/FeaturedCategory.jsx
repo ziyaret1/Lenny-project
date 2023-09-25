@@ -28,6 +28,7 @@ const FeaturedCategory = () => {
         <h1>Featured Category</h1>
         <Buttons text="View Detail" color="white" textColor="#1E4C2F" />
       </div>
+      <div className="swiperCont">
       <Swiper
         scrollbar={{
           hide: false,
@@ -37,35 +38,42 @@ const FeaturedCategory = () => {
       >
         <SwiperSlide className="swiperScrol">
           <div className="features-footer">
-            <Link className="features-footer" to="/searchres">
-              {categories?.data?.map(({ id, attributes }) => {
-                return (
+            {categories?.data?.map(({ id, attributes }) => {
+              return (
+                <Link
+                  key={id}
+                  className="link"
+                  to={`/searchres/${id}`}
+                >
                   <FeaturedCards
-                    key={id}
                     fIcon={attributes?.image?.data?.attributes?.url}
                     fText={attributes.title}
                   />
-                );
-              })}
-            </Link>
+                </Link>
+              );
+            })}
           </div>
         </SwiperSlide>
         <SwiperSlide className="swiperScrol">
           <div className="features-footer">
-            <Link className="features-footer" to="/searchres">
-              {categories?.data?.map(({ id, attributes }) => {
-                return (
+            {categories?.data?.map(({ id, attributes }) => {
+              return (
+                <Link
+                  key={id}
+                  className="link"
+                  to={`/searchres/${id}`}
+                >
                   <FeaturedCards
-                    key={id}
                     fIcon={attributes?.image?.data?.attributes?.url}
                     fText={attributes.title}
                   />
-                );
-              })}
-            </Link>
+                </Link>
+              );
+            })}
           </div>
         </SwiperSlide>
       </Swiper>
+    </div>
     </div>
   );
 };

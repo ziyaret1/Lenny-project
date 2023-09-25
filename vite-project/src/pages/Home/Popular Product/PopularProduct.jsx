@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 const PopularProduct = () => {
   const [products, setProducts] = useState([]);
-
   // React.useEffect(() => {
   //   async function getAllProduct() {
   //     const data2 = await getProducts();
@@ -18,55 +17,60 @@ const PopularProduct = () => {
   //   getAllProduct();
   // }, []);
 
-  console.log(products, "prod");
-
   const [limit, setLimit] = useState(Number(8));
- const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(1);
 
-React.useEffect(() =>{
-  async function getAllLimit(){
-    const data3 = await getLimitedProduct(limit)
-    setProducts(data3)
-  }
-  getAllLimit()
-  console.log(limit, 'limit');
-}, [limit])
+  React.useEffect(() => {
+    async function getAllLimit() {
+      const data3 = await getLimitedProduct(limit);
+      setProducts(data3);
+    }
+    getAllLimit();
+    console.log(limit, "limit");
+  }, [limit]);
 
-const changeLimit = () => {
- setLimit((prev) => prev + 8)
- setCounter((prev) => prev + 1)
-}
+  const changeLimit = () => {
+    setLimit((prev) => prev + 8);
+    setCounter((prev) => prev + 1);
+  };
 
   return (
     <div className="popularProduct-container">
       <div className="popProduct-header">
         <h1>Popular Product on Lenny</h1>
         <p>Lorem ipsum dolor sit amet consectetur. Integer cursus cursus in</p>
-      </div> 
+      </div>
       <div className="popProductCards">
-        <Link className="popProductCards" to="/productdetail">
-          {products?.data?.map(({ id, attributes }) => {
+        {products?.data?.map((products) => {
           return (
-            <ProductCard
-              key={id}
-              prodImage={attributes?.image?.data[0]?.attributes?.url}
-              prodName={attributes?.title}
-              prodAmount={"$" + attributes?.price}
-              prodOwner="North Purwokerto"
-              prodStar={<PiStarFill />}
-              prodPopularity={attributes?.rating}
-              dotIcon={<PiDotOutlineFill />}
-              prodSold="1,238 Sold"
-            />
+            <Link
+              key={products.id}
+              className="popProductCards"
+              to={`/productdetail/${products.id}`}
+            >
+              <ProductCard
+                prodImage={
+                  products?.attributes?.image?.data[0]?.attributes?.url
+                }
+                prodName={products?.attributes?.title}
+                prodAmount={"$" + products?.attributes?.price}
+                prodOwner="North Purwokerto"
+                prodStar={<PiStarFill />}
+                prodPopularity={products?.attributes?.rating}
+                dotIcon={<PiDotOutlineFill />}
+                prodSold="1,238 Sold"
+              />
+            </Link>
           );
         })}
-        </Link>
-        
       </div>
-      <div className="prodViewBtn"> {
-        counter != 3 && counter < 3 && <button className="homeLoadMore" onClick={changeLimit}>Load more</button> 
-      }
-        
+      <div className="prodViewBtn">
+        {" "}
+        {counter != 3 && counter < 3 && (
+          <button className="homeLoadMore" onClick={changeLimit}>
+            Load more
+          </button>
+        )}
       </div>
     </div>
   );
