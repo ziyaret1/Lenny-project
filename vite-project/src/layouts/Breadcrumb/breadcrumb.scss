@@ -2,15 +2,19 @@
 @import "../../assets//styles/mixin.scss";
 
 .breadCrumb-container {
+  width: 1000px;
   padding: 2% 5%;
   display: flex;
   align-items: center;
+  margin-top: 20px;
   .breadcrumb-not-active {
+    font-size: 18px;
     color: $black;
     text-decoration: none;
     font-weight: 500;
   }
   .breadcrumb-active {
+    font-size: 18px;
     color: $lightGreen;
     text-decoration: none;
     font-weight: 500;
@@ -22,5 +26,19 @@
     font-weight: 500;
     display: flex;
     align-items: center;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .breadCrumb-container {
+    .breadcrumb-not-active {
+      font-size: 14px;
+    }
+    .breadcrumb-active {
+      font-size: 14px;
+    }
+    .breadcrumb-arrow {
+      margin: none;
+    }
   }
 }

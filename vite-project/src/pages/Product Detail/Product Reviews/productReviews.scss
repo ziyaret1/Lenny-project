@@ -1,11 +1,14 @@
 @import "../../../assets/styles/variables.scss";
 
 .productReviews-container {
-    padding: 0 5%;
+    margin-left: -20px;
     .filter-list{
         display: flex;
     }
     .borderBottom{
         border: 1px solid $borderGrey;
+    }
+    .reviewsFilter-container{
+        display: none;
     }
 }

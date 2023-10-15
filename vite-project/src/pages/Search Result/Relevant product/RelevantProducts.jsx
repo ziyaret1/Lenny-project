@@ -3,12 +3,10 @@ import ProductCard from "../../../components/Product Cards/ProductCard";
 import { PiDotOutlineFill } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { PiStarFill } from "react-icons/pi";
+import { PiCaretRightBold } from "react-icons/pi";
 
 // eslint-disable-next-line react/prop-types
 const RelevantProducts = ({ categoryProduct }) => {
-  
-  console.log(categoryProduct, "catprodLog");
-
   return (
     <div className="relevantProducts-container">
       <div className="relevantProductList">
@@ -38,7 +36,13 @@ const RelevantProducts = ({ categoryProduct }) => {
           })
         }
       </div>
-      <div className="relevantProductPagination"></div>
+      <div className="relevantProductPagination">
+        <p>1</p>
+        <p>2</p>
+        <p>...</p>
+        <p>19</p>
+        <PiCaretRightBold className="rightArrow" />
+      </div>
     </div>
   );
 };

@@ -12,6 +12,13 @@ export const getProducts = async () => {
     return res2.data
 }
 
+//! getSingleProduct
+
+export const getSingleProduct = async (id) => {
+    const res2 = await instance.get(`/products/${id}?populate=*`)
+    return res2.data
+}
+
 //! GET LIMIT
 export const getLimitedProduct = async (limit) =>{
     const res3 = await instance.get(`/products?populate=*&pagination[limit]=${limit}`)
@@ -25,6 +32,7 @@ export const getProductByCategoryId = async (id) =>{
 }
 
 
+//! GET 
 
 
 

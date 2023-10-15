@@ -23,3 +23,16 @@
     justify-content: center;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .ratingDetails-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    img{
+      width: 200px;
+      height: 8px;
+      border-radius: 9px;
+    }
+  }
+}

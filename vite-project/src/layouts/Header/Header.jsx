@@ -5,17 +5,11 @@ import { BiSolidUser } from "react-icons/bi";
 import shoppingCart from "../../assets/icons/shopping-cart.png";
 import notification from "../../assets/icons/notification.png";
 import message from "../../assets/icons/sms.png";
-import SignUp from "../../pages/Login/Sign Up/SignUp";
-import { useState } from "react";
 // import userPhoto from '../../assets/images/profilePhoto.png'
+import hambMenu from '../../assets/icons/menu.png'
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [signUp, setSignUp] = useState(false);
-  const toggleSignUp = () => {
-    setSignUp(!signUp);
-  };
-
   return (
     <div className="header-container">
       <div className="logo">
@@ -29,9 +23,12 @@ const Header = () => {
             <label htmlFor="select"></label>
             <select>
               <option value="allCategory">All Categories</option>
-              <option value="home">Home</option>
-              <option value="electronic">Electronic</option>
-              <option value="blog">Blog</option>
+              <option value="home">Electronics</option>
+              <option value="electronic">Fashion</option>
+              <option value="blog">Action Figure</option>
+              <option value="home">Book</option>
+              <option value="electronic">Gaming</option>
+              <option value="blog">Accessories</option>
             </select>
             <div className="borderRight"></div>
             <input type="text" placeholder="Search on lenny..." />
@@ -41,19 +38,24 @@ const Header = () => {
           <CiSearch className="search" />
         </div>
       </div>
+      <div className="input-mobile">
+        <form action="">
+          <input type="text" placeholder="Search product" />
+          <CiSearch className="search" />
+        </form>
+      </div>
       <div className="basket-user">
-        <Link className="basket-user" to="/shopcard">
           <img src={shoppingCart} className="basket" alt="" />
-        </Link>
-
-        <p className="productInCart">6</p>
+        {/* <p className="productInCart">6</p> */}
         <img src={notification} className="notification" alt="" />
         <img src={message} className="message" alt="" />
         <div className="borderHead"></div>
-        <BiSolidUser className="user" onClick={toggleSignUp} />
+        <BiSolidUser className="user"/>
+        <img className="hambMenu" src={hambMenu} alt="" />
         {/* <img src={userPhoto} className='userPhoto' alt="" /> */}
+        {/* <p className="userName">Z</p> */}
       </div>
-      <div className="signUp">{signUp && <SignUp />}</div>
+      {/* <div className="signUp">{signUp && <SignUp />}</div> */}
     </div>
   );
 };

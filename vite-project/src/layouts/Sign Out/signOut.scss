@@ -10,7 +10,9 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-
+ img{
+  cursor: pointer;
+ }
   .userInfo {
     display: flex;
     align-items: center;

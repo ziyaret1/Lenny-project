@@ -1,7 +1,7 @@
 @import "../../../assets/styles/variables.scss";
 
 .merchantInfo-container {
-  padding: 2% 5%;
+  margin-left: -20px;
   .merchant-infos {
     display: flex;
     align-items: center;
@@ -19,8 +19,8 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        h3{
-            font-size: 18px;
+        h3 {
+          font-size: 18px;
         }
         p {
           font-size: 16px;
@@ -67,8 +67,68 @@
       }
     }
   }
-  .borderBottom{
+  .borderBottom {
     border: 1px solid $borderGrey;
     width: auto;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .merchantInfo-container {
+    .merchant-infos {
+      display: flex;
+      flex-direction: column;
+      .infoAndName-cont {
+        .merch-information {
+          margin-left: -10%;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          h3 {
+            font-size: 16px;
+          }
+          p {
+            font-size: 15px;
+            color: $iconGrey;
+          }
+          .bestMerchants {
+            span {
+              font-size: 12px;
+              font-weight: 500;
+              padding: 6px;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+      .merchantsButtons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: -20px;
+        button {
+          width: auto;
+          height: 50px;
+          border-radius: 8px;
+          border: 1px solid $darkGreen;
+          font-size: 16px;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+          gap: 5px;
+        }
+        .merchantIcon {
+          width: 26px;
+          height: 26px;
+          color: $darkGreen;
+        }
+      }
+    }
+    .borderBottom {
+      border: 1px solid $borderGrey;
+      width: auto;
+    }
   }
 }

@@ -1,11 +1,10 @@
 import './buttons.scss'
 
-// eslint-disable-next-line react/prop-types
-const Buttons = ({img, color, textColor, text}) => {
+const Buttons = ({img, color, textColor, text, onClick} ) => {
 
   return (
 <div className='buttons'>
-        <button className='buttonStyle' style={{backgroundColor:`${color}`, color: `${textColor}`}}>
+        <button onClick={onClick} className='buttonStyle' style={{backgroundColor:`${color}`, color: `${textColor}`}}>
             {
                 img ?  <icon className="buttonIcon">{img}</icon> : ""
             }

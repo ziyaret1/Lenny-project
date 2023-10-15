@@ -1,3 +1,5 @@
+@import '../../../assets/styles/variables.scss';
+
 .lennyArticleCards-container{
     display: flex;
     flex-direction: column;
@@ -9,6 +11,10 @@
         color: green;
     }
     .lennyArtImg-head{
+        img{
+            width: 384px;
+            height: 280px;
+        }
         p{
             margin-top: 12px;
         }
@@ -16,14 +22,53 @@
     .lennyArtContext{
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 10px;
         h2{
             font-size: 20px;
-            color: #0B0F0E;
+            color: $black;
         }
     }
     p{
         font-size: 16px;
-        color: #818B9C;
+        color: $iconGrey;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .lennyArticleCards-container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .lennyArtBtn{
+            background-color: #1D9E341A;
+            border-radius: 8px;
+            font-size: 12px;
+            color: green;
+        }
+        .lennyArtImg-head{
+            img{
+                width: 327px;
+                height: 180px;
+            }
+            p{
+                font-size: 14px;
+                margin-top: 12px;
+            }
+        }
+        .lennyArtContext{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 95%;
+            h2{
+                font-size: 16px;
+                color: $black;
+                font-weight: 600;
+            }
+        }
+        p{
+            font-size: 14px;
+            color: $iconGrey;
+        }
     }
 }

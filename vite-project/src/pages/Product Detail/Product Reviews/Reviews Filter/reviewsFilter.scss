@@ -3,6 +3,9 @@
 .reviewsFilter-container{
   padding: 2% 0;
   width: 24%; 
+  .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
+    margin-top: 20px;
+  }
   .showAll{
     color: $lightGreen;
     font-size: 16px;
@@ -12,7 +15,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
   }
   .reviewsFilter-cont {
     border: 1px solid $borderGrey;
@@ -70,6 +72,84 @@
         padding: 11px 10px;
         color: $black;
         font-size: 16px;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .reviewsFilter-container{
+    padding: 2% 0; 
+    width: 24%; 
+    .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
+      margin-top: 20px;
+    }
+    .showAll{
+      color: $lightGreen;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .boxTitle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .reviewsFilter-cont {
+      border: 1px solid $borderGrey;
+      border-radius: 12px;
+      width: 100%;
+      padding: 20px;
+      .borderBottom {
+        border: 1px solid $borderGrey;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+    }
+    .selectChange{
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+      .changeInput{
+          border: 1px solid $borderGrey;
+          border-radius: 9px;
+          padding: 11px 10px;
+          form{
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              select{
+              border: none;
+              outline: none;
+              font-weight: 500;
+              font-size: 16px;
+          }
+          input{
+              width: 90px;
+              border: none;
+              outline: none;
+              color: $iconGrey;
+              font-size: 14px;
+          }
+          .borderForChange{
+              border: 1px solid $borderGrey;
+              height: 22px;
+          }}  
+      }
+     
+    }
+    .changeButtons{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      button{
+          background-color: transparent;
+          border: 1px solid $borderGrey;
+          border-radius: 9px;
+          padding: 11px 10px;
+          color: $black;
+          font-size: 16px;
+      }
     }
   }
 }

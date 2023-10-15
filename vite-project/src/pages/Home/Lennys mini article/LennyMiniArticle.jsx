@@ -11,9 +11,10 @@ const LennyMiniArticle = () => {
         <h1>Lenny`s Article</h1>
         <Link className="lennyButton" to="/article">
           <Buttons text="View Detail" color="white" textColor="#1E4C2F" />
-        </Link>
+        </Link> 
       </div>
       <div className="lennyArtCards">
+        <div className="lennyCard">
         <LennyArticleCards
           artImage={DesktopImage}
           artDate="22 Dec 2022"
@@ -22,6 +23,8 @@ const LennyMiniArticle = () => {
 pellentesque etiam scelerisque pharetra id.
 Maecenas diam eu amet cras"
         />
+         </div>
+         <div className="lennyCard">
         <LennyArticleCards
           artImage={DesktopImage}
           artDate="22 Dec 2022"
@@ -30,6 +33,8 @@ Maecenas diam eu amet cras"
 pellentesque etiam scelerisque pharetra id.
 Maecenas diam eu amet cras"
         />
+         </div>
+         <div className="lennyCard">
         <LennyArticleCards
           artImage={DesktopImage}
           artDate="22 Dec 2022"
@@ -38,6 +43,7 @@ Maecenas diam eu amet cras"
 pellentesque etiam scelerisque pharetra id.
 Maecenas diam eu amet cras"
         />
+         </div>
       </div>
     </div>
   );

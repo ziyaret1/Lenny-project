@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import "./productCard.scss";
 import { PiHeart } from "react-icons/pi";
 
@@ -12,15 +11,20 @@ const ProductCard = ({
   prodPopularity,
   dotIcon,
   prodSold,
+  onClick,
 }) => {
+
+  let prodStr = prodName
+  let parseProdStr = prodStr.length > 24 ? prodStr.slice(0, 20) + "..." : prodStr
+
+
   return (
-    <div className="productCard-container">
+    <div className="productCard-container" onClick={onClick}>
       <div className="prodCardCont">
         <div className="popProdImage">
           <div className="heartIcon">
-            <PiHeart className="heart" />
+            <PiHeart onClick={() => console.log('okay')} className="heart" />
           </div>
-          
           {
             prodImage ? <img
             src={`${import.meta.env.VITE_UPLOAD_IMAGE}${prodImage}`}
@@ -32,7 +36,7 @@ const ProductCard = ({
         <div className="popProdContext">
           <div className="prodName-owner">
             <div className="popProdName">
-              <h2 className="prodName">{prodName}</h2>
+              <h2 className="prodName">{parseProdStr}</h2>
               {prodAmount ? <h2 className="prodAmount">{prodAmount}</h2> : ""}
             </div>
             <div className="popProdOwner">

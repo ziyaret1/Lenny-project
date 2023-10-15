@@ -1,31 +1,30 @@
-@import '../../../assets/styles/variables.scss';
+@import "../../../assets/styles/variables.scss";
 
-.ipadAirGen-container{
-    padding: 6% 5%;
-    .ipadAir{
-        background-color: #FCECE1;
-        align-items: center;
-        justify-content: flex-end;
-        display: flex;
-        padding: 6%;
-        border-radius: 13px;
-        position: relative;
-    }
-    .ipadAir-image{
-        position: absolute;
-        left: 7%;
-    }
+.ipadAirGen-container {
+  padding: 6% 5%;
+  .ipadAir {
+    background-color: #fcece1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 6%;
+    border-radius: 13px;
+    position: relative;
+  }
+  .ipadAir-image {
+    position: absolute;
+    left: 7%;
+  }
   .ipadAir-about {
     width: 50%;
-    
+
     display: flex;
     flex-direction: column;
     gap: 30px;
     .ipad-text {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
 
       h1 {
         font-size: 36px;
@@ -38,9 +37,64 @@
       }
     }
   }
-  .ipad-buttons{
+  .ipad-buttons {
     display: flex;
     align-items: center;
     gap: 20px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .ipadAirGen-container {
+    padding: 6% 5%;
+    .ipadAir {
+      background-color: #fcece1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 7% 6%;
+      border-radius: 13px;
+      position: relative;
+    }
+    .ipadAir-image {
+      position: inherit;
+      left: 10px;
+      top: 10px;
+      img {
+        width: 158px;
+        height: 176px;
+      }
+    }
+    .ipadAir-about {
+      width: 100%;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 40px;
+      .ipad-text {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        h1 {
+          font-size: 36px;
+          color: $black;
+        }
+        p {
+          font-size: 18px;
+          color: $iconGrey;
+          line-height: 24px;
+        }
+      }
+    }
+    .ipad-buttons {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      .buttonStyle {
+        width: 133px;
+        height: 48px;
+      }
+    }
   }
 }

@@ -3,6 +3,9 @@
 .fullContainer {
   padding: 2% 2% 3% 5%;
   width: 27%;
+  .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
+    margin-top: 20px;
+  }
   .showAll {
     color: $lightGreen;
     font-size: 16px;
@@ -73,5 +76,11 @@
       color: $black;
       font-size: 16px;
     }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .fullContainer {
+   display: none;
   }
 }

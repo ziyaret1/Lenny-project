@@ -2,7 +2,7 @@
 .featuredCard-container{
     padding: 2% 1%;
     .featuresCards{
-        border: 1px solid $borderGrey;
+        border: 2px solid $borderGrey;
         text-align: center;
         display: flex;
         align-items: center;
@@ -17,6 +17,7 @@
             height: 50px;
         }
         h1{
+            margin-top: 15px;
             font-size: 20px;
             color: $black;
         }

@@ -1,17 +1,25 @@
 import "./detailProduct.scss";
 import { PiCheckCircleFill } from "react-icons/pi";
+import React, { useState } from "react";
+import { getSingleProduct } from "../../../api/product.js";
 
-const DetailProduct = () => {
+const DetailProduct = ({ productId }) => {
+  const [singleProd, setSingleProd] = useState();
+  console.log(singleProd, "singpro");
+
+  React.useEffect(() => {
+    const getSingleProd = async () => {
+      const res = await getSingleProduct(productId);
+      setSingleProd(res.data);
+    };
+    getSingleProd();
+  }, [productId]);
+
   return (
     <div className="detailProduct-container">
       <div className="prodname-cont">
-        <h2>G502 X Lightspeed WirelessGaming Mouse</h2>
-        <p>
-          G502 X LIGHTSPEED is the latest addition to legendary G502 lineage.
-          Featuring our first-ever LIGHTFORCE hybrid optical-mechanical switches
-          and updated LIGHTSPEED wireless protocol with 68% faster response
-          rate.
-        </p>
+        <h2>{singleProd?.attributes?.title}</h2>
+        <p>{singleProd?.attributes?.description}</p>
       </div>
       <div className="prodInfos-cont">
         <div className="specification-cont">
@@ -31,11 +39,11 @@ const DetailProduct = () => {
             </div>
             <div className="infos">
               <p>Max Speed</p>
-              <h4>{'>'}40G2</h4>
+              <h4>{">"}40G2</h4>
             </div>
             <div className="infos bcground">
               <p>Max Acceleration</p>
-              <h4>{'>'}300 IPS</h4>
+              <h4>{">"}300 IPS</h4>
             </div>
           </div>
         </div>

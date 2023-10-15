@@ -3,36 +3,36 @@ import ProductCard from "../../../components/Product Cards/ProductCard";
 import { PiStarFill } from "react-icons/pi";
 import { PiDotOutlineFill } from "react-icons/pi";
 // import { getProducts } from "../../../api/product";
-import React, { useState } from "react";
-import { getLimitedProduct } from "../../../api/product";
+// import React, { useState } from "react";
+// import { getLimitedProduct } from "../../../api/product";
+import React from "react";
 import { Link } from "react-router-dom";
+import {useDispatch} from 'react-redux'
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { getLimitedProductThunk } from "../../../Redux/reducer/Products/productsThunk";
 
 const PopularProduct = () => {
-  const [products, setProducts] = useState([]);
-  // React.useEffect(() => {
-  //   async function getAllProduct() {
-  //     const data2 = await getProducts();
-  //     setProducts(data2);
-  //   }
-  //   getAllProduct();
-  // }, []);
 
-  const [limit, setLimit] = useState(Number(8));
-  const [counter, setCounter] = useState(1);
+  const [limit, setLimit] = React.useState(8);
+  const [counter, setCounter] = React.useState(1);
 
-  React.useEffect(() => {
-    async function getAllLimit() {
-      const data3 = await getLimitedProduct(limit);
-      setProducts(data3);
-    }
-    getAllLimit();
-    console.log(limit, "limit");
-  }, [limit]);
 
   const changeLimit = () => {
     setLimit((prev) => prev + 8);
     setCounter((prev) => prev + 1);
   };
+
+
+  const dispatch = useDispatch()
+  const {products} = useSelector((state) => state.products)
+
+  React.useEffect(() => {
+    dispatch(getLimitedProductThunk(limit))
+  }, [limit, dispatch]);
+
+  console.log(products, "limitedProd");
+
+
 
   return (
     <div className="popularProduct-container">
@@ -41,7 +41,7 @@ const PopularProduct = () => {
         <p>Lorem ipsum dolor sit amet consectetur. Integer cursus cursus in</p>
       </div>
       <div className="popProductCards">
-        {products?.data?.map((products) => {
+        {products?.map((products) => {
           return (
             <Link
               key={products.id}
@@ -66,7 +66,7 @@ const PopularProduct = () => {
       </div>
       <div className="prodViewBtn">
         {" "}
-        {counter != 3 && counter < 3 && (
+        {counter < 3 && (
           <button className="homeLoadMore" onClick={changeLimit}>
             Load more
           </button>

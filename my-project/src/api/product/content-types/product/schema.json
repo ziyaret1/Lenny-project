@@ -33,9 +33,9 @@
     "color": {
       "type": "enumeration",
       "enum": [
-        "black ",
-        "white",
-        "green"
+        "Black ",
+        "White",
+        "Green"
       ]
     },
     "type": {

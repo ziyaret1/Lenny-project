@@ -1,7 +1,6 @@
 import "./ipadAirGen.scss";
-import Buttons from '../../../components/Buttons/Buttons'
-import ipadAirImage from '../../../assets/images/iPad Air 2020.png'
-
+import Buttons from "../../../components/Buttons/Buttons";
+import ipadAirImage from "../../../assets/images/iPad Air 2020.png";
 
 const IpadAirGen = () => {
   return (
@@ -23,7 +22,7 @@ const IpadAirGen = () => {
             <Buttons
               text="View Detail"
               textColor="#1E4C2F"
-              color="white"
+              color="transparent"
             />
           </div>
         </div>

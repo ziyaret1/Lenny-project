@@ -24,12 +24,12 @@ const Breadcrumb = () => {
       >
         Product Detail
       </Link>
-      <span className="breadcrumb-arrow"><LiaAngleRightSolid/></span>
+      {/* <span className="breadcrumb-arrow"><LiaAngleRightSolid/></span>
       <Link to="/detailarticle"
         className={location.pathname === "/detailarticle" ? "breadcrumb-active" : "breadcrumb-not-active"}
       >
-        Article Detail
-      </Link>
+      Article Detail
+      </Link> */}
 
 </div>
   )
