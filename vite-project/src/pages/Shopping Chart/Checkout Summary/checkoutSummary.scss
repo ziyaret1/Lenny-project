@@ -73,9 +73,9 @@
       height: 24px;
     }
   }
-  .checkout-button{
+  .checkout-button {
     cursor: pointer;
-    
+
     height: 50px;
     border: 1px solid $darkGreen;
     background-color: $darkGreen;
@@ -83,5 +83,76 @@
     color: white;
     font-size: 18px;
     font-weight: 500;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .checkoutSummary-container {
+    width: 100%;
+    .checkoutSum-title {
+      h3 {
+        font-size: 16px;
+      }
+    }
+    .prise-taxes {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      p {
+        font-size: 14px;
+        color: $iconGrey;
+      }
+      .totalPrise {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .shippingDiscount {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .tax-fee {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .finalTotalPrise {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h3 {
+        font-size: 16px;
+      }
+    }
+    .usePromo-cont {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border-radius: 8px;
+      .promoIcon-title {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .promoText {
+          gap: 4px;
+          h4 {
+            font-size: 15px;
+          }
+          p {
+            font-size: 12px;
+          }
+        }
+      }
+      .promoRightArrow {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .checkout-button {
+      font-size: 16px;
+    }
   }
 }

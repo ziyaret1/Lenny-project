@@ -6,7 +6,7 @@
   gap: 12px;
   .articleCard-img {
     img {
-      border-radius: 12px;
+      border-radius: 8px;
       width: 384px;
       height: 260px;
     }
@@ -45,9 +45,64 @@
       font-weight: 500;
       cursor: pointer;
     }
-    .link{
+    .link {
       text-decoration: none;
       color: $black;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .articleCard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px;
+    .articleCard-img {
+      img {
+        border-radius: 8px;
+        width: 330px;
+        height: 180px;
+      }
+    }
+    .articleCard-readers {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      p {
+        font-size: 13px;
+        font-weight: 500;
+        color: #1d9e34;
+        background-color: #1d9e341a;
+        padding: 7px;
+        border-radius: 4px;
+      }
+      span {
+        font-size: 13px;
+        color: $iconGrey;
+      }
+    }
+    .articleCard-title {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      color: $black;
+      h3 {
+        width: 100%;
+        font-size: 17px;
+      }
+      p {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      .link {
+        text-decoration: none;
+        color: $black;
+      }
     }
   }
 }

@@ -6,7 +6,7 @@ const PopularArticle = () => {
   return (
     <div className="popularArticle-container">
       <div className="popArt-cont">
-        <div className="popArticleImg">
+        <div className="popArticleImg"> 
           <img src={popArticleImg} alt="" />
         </div>
         <div className="popArticleInfo">

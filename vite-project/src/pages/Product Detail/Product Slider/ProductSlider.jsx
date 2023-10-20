@@ -6,42 +6,50 @@ import React, { useState } from "react";
 import { getSingleProduct } from "../../../api/product.js";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/scss/image-gallery.scss";
+// import { useSelector } from "react-redux";
+
+
 
 const ProductSlider = ({ productId }) => {
-  const images = [
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-  ];
 
-  const [singleProd, setSingleProd] = useState();
-  console.log(singleProd, "singpro");
+  // const {loading} = useSelector((state) => state.products)
 
+  const [loading, setLoading] = useState(true)
+
+  const [singleProd, setSingleProd] = useState(null);
+  const [images, setImages] = useState([]);
   React.useEffect(() => {
     const getSingleProd = async () => {
       const res = await getSingleProduct(productId);
       setSingleProd(res.data);
+      console.log(res, "sliderimg");
     };
     getSingleProd();
   }, [productId]);
 
+  React.useEffect(() => {
+
+    if (singleProd) {
+      setLoading(true)
+      const imageArray = singleProd?.attributes?.image?.data || [];
+      const imageList = imageArray.map((image) => ({
+        original: `${import.meta.env.VITE_UPLOAD_IMAGE}${image?.attributes?.url}`,
+        thumbnail: `${import.meta.env.VITE_UPLOAD_IMAGE}${image?.attributes?.url}`,
+      }));
+      setImages(imageList); // Image yeni datalari gonderirik
+      setLoading(false)
+    }
+  }, [singleProd]);
+
+
   return (
     <div className="productSlider-container">
       <div className="productImages">
-        <ImageGallery items={images} />
+        {
+          loading ?  <p>Loading...</p> 
+          :  <ImageGallery items={images} />
+ 
+        }
       </div>
       <div className="productInfo-buying">
         <div className="productInfo">

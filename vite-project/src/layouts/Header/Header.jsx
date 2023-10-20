@@ -21,16 +21,6 @@ const Header = () => {
         <div className="inputs">
           <form action="">
             <label htmlFor="select"></label>
-            <select>
-              <option value="allCategory">All Categories</option>
-              <option value="home">Electronics</option>
-              <option value="electronic">Fashion</option>
-              <option value="blog">Action Figure</option>
-              <option value="home">Book</option>
-              <option value="electronic">Gaming</option>
-              <option value="blog">Accessories</option>
-            </select>
-            <div className="borderRight"></div>
             <input type="text" placeholder="Search on lenny..." />
           </form>
         </div>

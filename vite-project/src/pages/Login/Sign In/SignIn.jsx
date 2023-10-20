@@ -1,14 +1,39 @@
+/* eslint-disable react/no-unescaped-entities */
 import "./signIn.scss";
+import React from "react";
 import { BiLogoFacebook } from "react-icons/bi";
 import { PiEye, PiEyeSlash } from "react-icons/pi";
-import React from "react";
+import { useDispatch } from "react-redux";
+import { fetchAuthLogin } from "../../../Redux/reducer/Auth/authThunk";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
-  const [seePassword, setSeePassword] = React.useState("");
+  // const [seePassword, setSeePassword] = React.useState("");
   const [showPassword, setShowPassword] = React.useState(false);
-
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const dispatch = useDispatch()
+
+  const [logData, setLogData] = React.useState({
+    identifier: "",
+    password: "",
+  });
+
+  const handleChangeValue = (e) => {
+    setLogData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  // const navigation = useNavigate()
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    console.log(logData, 'logdata');
+    dispatch(fetchAuthLogin(logData))
   };
 
   return (
@@ -19,14 +44,21 @@ const SignIn = () => {
       <div className="containerInput">
         <form>
           <label htmlFor="">Phone Number or Email</label>
-          <input type="email" placeholder="Enter your phone number or email" />
+          <input
+            type="email"
+            name="identifier"
+            value={logData.identifier}
+            placeholder="Enter your phone number or email"
+            onChange={handleChangeValue}
+          />
           <label htmlFor="">Password</label>
           <div className="passwordInput">
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
-              value={seePassword}
-              onChange={(e) => setSeePassword(e.target.value)}
+              value={logData.password}
+              name="password"
+              onChange={handleChangeValue}
             />
             <span
               className={`toggle-password ${showPassword ? "show" : ""}`}
@@ -40,11 +72,13 @@ const SignIn = () => {
             </span>
           </div>
         </form>
-        <span>Getting Trouble?</span>
+        <Link to="/register" className="link">
+        <span>Don't have an account?</span>
+        </Link>
       </div>
       <div className="containerButtons">
         <div className="signinbtn">
-          <button>Sign In</button>
+          <button type="submit" onClick={handleOnSubmit}>Sign In</button>
         </div>
         <div className="otherMethod">
           <div className="leftBorder"></div>

@@ -1,49 +1,84 @@
-@import '../../../assets/styles/variables.scss';
+@import "../../../assets/styles/variables.scss";
 
-.registerSuccess-container{
-    width: 30%;
-    border: 1px solid $borderGrey;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.registerSuccess-container {
+  width: 30%;
+  border: 1px solid $borderGrey;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 40px;
+  .successIcon {
+    .doneIcon {
+      width: 100px;
+      height: 100px;
+      font-weight: 500;
+      background-color: $borderGrey;
+      padding: 20px;
+      border-radius: 100%;
+      color: $lightGreen;
+    }
+  }
+  .successRes {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    padding: 40px;
-    .successIcon{
-        .doneIcon{
-        width: 100px;
-        height: 100px;
-        font-weight: 500;
-        background-color: $borderGrey;
+    gap: 15px;
+    text-align: center;
+    h3 {
+      font-size: 25px;
+    }
+    p {
+      color: $iconGrey;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .successButton {
+      cursor: pointer;
+      border: 1px solid $darkGreen;
+      background-color: $darkGreen;
+      border-radius: 8px;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+      height: 48px;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .registerSuccess-container {
+    width: 330px;
+    padding: 30px;
+    .successIcon {
+      .doneIcon {
         padding: 20px;
-        border-radius: 100%;
-        color: $lightGreen;
+      }
     }
-    }
-    .successRes{
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-         h3{
-        font-size: 25px;
-    }
-    p{
+    .successRes {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+      h3 {
+        font-size: 20px;
+      }
+      p {
         color: $iconGrey;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 20px;
-    } 
-    .successButton{
+      }
+      .successButton {
         cursor: pointer;
-                border: 1px solid $darkGreen;
-                background-color: $darkGreen;
-                border-radius: 8px;
-                color: white;
-                font-size: 18px;
-                font-weight: 500;
-                height: 48px;
+        border: 1px solid $darkGreen;
+        background-color: $darkGreen;
+        border-radius: 8px;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        height: 48px;
+      }
     }
-    }
-  
+  }
 }

@@ -49,6 +49,9 @@
     align-items: center;
     gap: 20px;
     cursor: pointer;
+    p {
+      display: none;
+    }
     .product-count {
       border: 1px solid $borderGrey;
       border-radius: 8px;
@@ -78,6 +81,93 @@
       .trash {
         width: 20px;
         height: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .choicesProductCard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+    .choiceCheckBox {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      .products {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        img {
+          width: 66px;
+          height: 66px;
+          background-color: #f6f6f6;
+          border-radius: 8px;
+          padding: 15px;
+        }
+        .productPrise {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          h4 {
+            font-size: 12px;
+          }
+          p {
+            font-size: 12px;
+            color: $iconGrey;
+          }
+          h3 {
+            font-size: 13px;
+            color: $lightGreen;
+          }
+        }
+      }
+    }
+    .productCount-deleteBin {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      p {
+        margin-left: 0;
+        display: block;
+        color: $iconGrey;
+        font-size: 11px;
+      }
+      .product-count {
+        margin-left: 64px;
+        border: 1px solid $borderGrey;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 7px;
+        span {
+          font-weight: 500;
+          font-size: 15px;
+        }
+        .minus {
+          color: $iconGrey;
+          cursor: pointer;
+          font-size: 18px;
+          font-weight: 500;
+        }
+        .plus {
+          font-weight: 500;
+          font-size: 18px;
+          color: $lightGreen;
+          cursor: pointer;
+        }
+      }
+      .delete-bin {
+        border: 1px solid $borderGrey;
+        border-radius: 8px;
+        padding: 7px;
+        .trash {
+          width: 18px;
+          height: 18px;
+        }
       }
     }
   }

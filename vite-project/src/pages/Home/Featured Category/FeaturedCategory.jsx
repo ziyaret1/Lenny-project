@@ -16,6 +16,7 @@ const FeaturedCategory = () => {
  
   const dispatch = useDispatch()
   const {categories} = useSelector((state) => state.categories)
+  
   React.useEffect(() => {
     dispatch(getCategories())
   }, [dispatch]);

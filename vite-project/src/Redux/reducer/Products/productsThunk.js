@@ -8,7 +8,7 @@ export const getAllProducts = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const res = await instance.get("/products?populate=*")
-            return res.data
+            return res.data 
         } catch (error) {
             rejectWithValue(error)
         }
@@ -22,7 +22,7 @@ export const getLimitedProductThunk = createAsyncThunk(
         try {
            const data = await getLimitedProduct(limit)
            return data.data
-        } catch (error) {
+        } catch (error) { 
             rejectWithValue(error)
         }
     }

@@ -15,22 +15,20 @@
     justify-content: center;
     gap: 12px;
     margin-top: 30px;
-    p {
-      border: 1px solid $borderGrey;
-      border-radius: 8px;
-      font-weight: 500;
-      padding: 12px 18px;
-      color: $iconGrey;
-      cursor: pointer;
+    .css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root{
+    border-radius: 8px;
+    padding: 22px;   
+    font-family: "Clash Grotesk", sans-serif;
+    font-weight: 500;
+    color: $iconGrey;
     }
-    p:hover {
+    .css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon{
       color: $lightGreen;
     }
-    .rightArrow {
+    .css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+      background-color: white;
       color: $lightGreen;
-      width: 30px;
-      height: 30px;
-    }
+  }
   }
 }
 
@@ -52,22 +50,20 @@
       justify-content: center;
       gap: 12px;
       margin-top: 30px;
-      p {
-        border: 1px solid $borderGrey;
-        border-radius: 8px;
-        font-weight: 500;
-        padding: 12px 18px;
-        color: $iconGrey;
-        cursor: pointer;
+      .css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root{
+      border-radius: 8px;
+      padding: 22px;   
+      font-family: "Clash Grotesk", sans-serif;
+      font-weight: 500;
+      color: $iconGrey;
       }
-      p:hover {
+      .css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon{
         color: $lightGreen;
       }
-      .rightArrow {
+      .css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+        background-color: white;
         color: $lightGreen;
-        width: 30px;
-        height: 30px;
-      }
+    }
     }
   }
 }

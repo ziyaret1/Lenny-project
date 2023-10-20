@@ -28,3 +28,18 @@
     text-decoration: none;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .relatedProduct-container {
+    padding: 2% 7%;
+    margin-top: 30px;
+    .relatedProduct-title{
+      padding: 0 1%;
+    }
+    .productsList {
+      display: grid;
+      grid-gap: 5px 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

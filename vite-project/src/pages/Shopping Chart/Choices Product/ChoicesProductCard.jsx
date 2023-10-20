@@ -19,6 +19,7 @@ const ChoicesProductCard = ({productImage, productName, productPrise}) => {
         </div>
         </div>
         <div className="productCount-deleteBin">
+                <p>Add to Favourite</p>
                 <div className="product-count">
                 <span className='minus'>-</span>
                 <span>1</span>

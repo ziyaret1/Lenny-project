@@ -9,8 +9,13 @@ const ShopChartTitle = () => {
         </div>
         <div className="cardSortBy">
             <span>Sort By:</span>
-                <select name="" id="">
+                <select className='selectForDesktop' name="" id="">
                     <option className='option' value="relevand">Latest Added</option>
+                    <option className='option' value="relevand">Latest Added</option>
+                    <option className='option' value="relevand">Latest Added</option>
+                </select> 
+                <select className='selectForMobile' name="" id="">
+                    <option className='option' value="relevand">Sort By Latest Added</option>
                     <option className='option' value="relevand">Latest Added</option>
                     <option className='option' value="relevand">Latest Added</option>
                 </select> 

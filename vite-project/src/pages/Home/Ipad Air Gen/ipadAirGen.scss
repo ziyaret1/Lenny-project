@@ -75,13 +75,13 @@
       .ipad-text {
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 10px;
         h1 {
-          font-size: 36px;
+          font-size: 20px;
           color: $black;
         }
         p {
-          font-size: 18px;
+          font-size: 14px;
           color: $iconGrey;
           line-height: 24px;
         }
@@ -94,6 +94,7 @@
       .buttonStyle {
         width: 133px;
         height: 48px;
+        font-size: 14px;
       }
     }
   }

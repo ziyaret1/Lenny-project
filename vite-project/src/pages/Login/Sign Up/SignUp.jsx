@@ -3,7 +3,8 @@ import "./signUp.scss";
 import { BiLogoFacebook } from "react-icons/bi";
 import { PiEye, PiEyeSlash } from "react-icons/pi";
 import { fetchAuthRegister } from "../../../Redux/reducer/Auth/authThunk";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   // const {jwtToken} = useSelector((state) => state.auth)
@@ -13,7 +14,9 @@ const SignUp = () => {
     setShowPassword(!showPassword);
   };
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
+  
+  const { userDatas} = useSelector((state) => state.auth)
 
   const [regDatas, setRegDatas] = React.useState({
     username: "",
@@ -22,10 +25,15 @@ const SignUp = () => {
   });
   console.log(regDatas);
 
+  const navigation = useNavigate() 
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
     dispatch(fetchAuthRegister(regDatas));
-    console.log("clicked");
+    
+    if(userDatas){
+      navigation("/success")
+    }
   };
 
   const handleChangeValue = (e) => {

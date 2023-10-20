@@ -1,7 +1,14 @@
+import { useNavigate } from 'react-router-dom'
 import './registerSuccess.scss'
 import {PiCheckBold} from 'react-icons/pi'
 
 const RegisterSuccess = () => {
+
+  const navigation = useNavigate()
+
+  const handleGoLogin = () => {
+    navigation("/signIn")
+  }
   return (
     <div className='registerSuccess-container'>
         <div className="successIcon">
@@ -10,7 +17,7 @@ const RegisterSuccess = () => {
             <div className="successRes">
                 <h3>Create Account Successfull!</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique ad obcaecati ab.</p>
-            <button className='successButton'>Sign In</button>
+            <button className='successButton' onClick={handleGoLogin}>Sign In</button>
             </div>
             
     </div>

@@ -20,14 +20,15 @@ export const getSingleProduct = async (id) => {
 }
 
 //! GET LIMIT
-export const getLimitedProduct = async (limit) =>{
+export const getLimitedProduct = async (limit) => {
     const res3 = await instance.get(`/products?populate=*&pagination[limit]=${limit}`)
     return res3.data
 }
 
 //! GET PRODUCT BY CATEGORY ID
-export const getProductByCategoryId = async (id) =>{
-    const res4 = await instance.get(`/products?populate=*&[filters][categories][id][$eq]=${id}`)
+export const getProductByCategoryId = async (id, page) => {
+    const res4 = await instance.get(`/products?populate=*&[filters][categories][id][$eq]=${id}&pagination[pageSize]=9&pagination[page]=${page}`)
+    console.log(id, page, 'idpage')
     return res4.data
 }
 

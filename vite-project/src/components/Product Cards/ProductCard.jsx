@@ -15,7 +15,7 @@ const ProductCard = ({
 }) => {
 
   let prodStr = prodName
-  let parseProdStr = prodStr.length > 24 ? prodStr.slice(0, 20) + "..." : prodStr
+  let parseProdStr = prodStr.length > 20 ? prodStr.slice(0, 20) + "..." : prodStr
 
 
   return (

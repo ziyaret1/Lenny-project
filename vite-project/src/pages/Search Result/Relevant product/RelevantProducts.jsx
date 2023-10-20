@@ -1,18 +1,40 @@
 import "./relevantProduct.scss";
 import ProductCard from "../../../components/Product Cards/ProductCard";
 import { PiDotOutlineFill } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PiStarFill } from "react-icons/pi";
-import { PiCaretRightBold } from "react-icons/pi";
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+import { useDispatch, useSelector } from "react-redux";
+import { getProdbyCategoryId } from "../../../Redux/reducer/Categories/categoryThunk";
+import React from 'react'
+import { setCurrentPage } from "../../../Redux/reducer/Categories/categoryReducer";
 
-// eslint-disable-next-line react/prop-types
-const RelevantProducts = ({ categoryProduct }) => {
+const RelevantProducts = () => {
+
+  const params = useParams()
+  const dispatch = useDispatch()
+  const {categoryProd, currentPage} = useSelector((state) => state.categories)
+  
+  console.log(categoryProd, 'catProd');
+
+
+  React.useEffect(() => {
+    dispatch(getProdbyCategoryId({
+      id: params.categoryId,
+      page: currentPage
+    }))
+  }, [currentPage, dispatch, params.categoryId])
+
+  const handleChangePage = (e, p) => {
+    dispatch(setCurrentPage(p))
+  }
+
   return (
     <div className="relevantProducts-container">
       <div className="relevantProductList">
         {
-          // eslint-disable-next-line react/prop-types
-          categoryProduct?.data?.map((product) => {
+          categoryProd?.data?.map((product) => {
             return (
               <Link
                 className="relevantProductList"
@@ -22,13 +44,13 @@ const RelevantProducts = ({ categoryProduct }) => {
                 <ProductCard
                   prodImage={
                     product?.attributes?.image?.data[0]?.attributes?.url
-                  }
+                  } 
                   prodName={product?.attributes?.title}
                   prodAmount={"$" + product?.attributes?.price}
                   prodOwner="North Purwokerto"
                   prodStar={<PiStarFill />}
-                  prodPopularity="4,8"
-                  dotIcon={<PiDotOutlineFill />}
+                  prodPopularity="4,8" 
+                  dotIcon={<PiDotOutlineFill />} 
                   prodSold="1,238 Sold"
                 />
               </Link>
@@ -37,11 +59,9 @@ const RelevantProducts = ({ categoryProduct }) => {
         }
       </div>
       <div className="relevantProductPagination">
-        <p>1</p>
-        <p>2</p>
-        <p>...</p>
-        <p>19</p>
-        <PiCaretRightBold className="rightArrow" />
+      <Stack spacing={2}>
+      <Pagination count={categoryProd?.meta?.pagination?.pageCount} onChange={handleChangePage} variant="outlined" shape="rounded" />
+    </Stack>
       </div>
     </div>
   );
