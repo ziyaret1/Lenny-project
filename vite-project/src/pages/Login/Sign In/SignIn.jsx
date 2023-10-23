@@ -1,20 +1,37 @@
-/* eslint-disable react/no-unescaped-entities */
 import "./signIn.scss";
 import React from "react";
 import { BiLogoFacebook } from "react-icons/bi";
 import { PiEye, PiEyeSlash } from "react-icons/pi";
 import { useDispatch } from "react-redux";
 import { fetchAuthLogin } from "../../../Redux/reducer/Auth/authThunk";
-import { Link } from "react-router-dom";
 
-const SignIn = () => {
-  // const [seePassword, setSeePassword] = React.useState("");
+//!modal
+// import Box from '@mui/material/Box';
+// import Modal from '@mui/material/Modal';
+// import SignUp from '../Sign Up/SignUp'
+// const style = {
+//   position: 'absolute',
+//   top: '50%',
+//   left: '50%',
+//   transform: 'translate(-50%, -50%)',
+//   width: 'auto',
+//   bgcolor: 'background.paper',
+//   border: 'none',
+//   borderRadius: '8px',
+//   boxShadow: 'none',
+//   p: 0,
+//   outline: 'none'
+// };
+
+ const SignIn = ({setopenSignIn, setOpenSignUp}) => {
+
   const [showPassword, setShowPassword] = React.useState(false);
+
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [logData, setLogData] = React.useState({
     identifier: "",
@@ -32,9 +49,15 @@ const SignIn = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(logData, 'logdata');
     dispatch(fetchAuthLogin(logData))
   };
+
+  // const [open, setOpen] = React.useState(false);
+  const handleCloseSignIn = () => {
+   setopenSignIn(false)
+   setOpenSignUp(true)
+  }
+  // const handleClose = () => setOpen(false);
 
   return (
     <div className="signIn-container">
@@ -42,7 +65,7 @@ const SignIn = () => {
         <h2>Sign In</h2>
       </div>
       <div className="containerInput">
-        <form>
+        <form onSubmit={handleOnSubmit}>
           <label htmlFor="">Phone Number or Email</label>
           <input
             type="email"
@@ -72,9 +95,17 @@ const SignIn = () => {
             </span>
           </div>
         </form>
-        <Link to="/register" className="link">
-        <span>Don't have an account?</span>
-        </Link>
+        <span onClick={handleCloseSignIn}>{"Don't have an account?"}</span>
+        {/* <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <SignUp/>
+        </Box>
+      </Modal> */}
       </div>
       <div className="containerButtons">
         <div className="signinbtn">

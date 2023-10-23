@@ -9,26 +9,38 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProdbyCategoryId } from "../../../Redux/reducer/Categories/categoryThunk";
 import React from 'react'
 import { setCurrentPage } from "../../../Redux/reducer/Categories/categoryReducer";
+// import { getFilteredProduct } from "../../../Redux/reducer/Categories/categoryThunk";
 
 const RelevantProducts = () => {
 
-  const params = useParams()
+  const params = useParams() 
   const dispatch = useDispatch()
-  const {categoryProd, currentPage} = useSelector((state) => state.categories)
-  
-  console.log(categoryProd, 'catProd');
+  const {categoryProd, currentPage, filterObj} = useSelector((state) => state.categories)
 
+
+  console.log({...filterObj}, categoryProd, 'filterObj');
 
   React.useEffect(() => {
-    dispatch(getProdbyCategoryId({
+    dispatch(getProdbyCategoryId({ 
       id: params.categoryId,
-      page: currentPage
+      page: currentPage,
+      color: filterObj.color
     }))
-  }, [currentPage, dispatch, params.categoryId])
+    // dispatch(getFilteredProduct({
+    //   color: filterObj.color,
+    //   id: params.categoryId,
+    //   page: currentPage
+    // }))
+  }, [currentPage, dispatch, filterObj, params.categoryId])
 
   const handleChangePage = (e, p) => {
     dispatch(setCurrentPage(p))
   }
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
 
   return (
     <div className="relevantProducts-container">

@@ -12,3 +12,18 @@
         display: block;
     }
 }
+
+@media only screen and (max-width: 450px) {
+    .productReviews-container {
+        margin-left: -20px;
+        .filter-list{
+            display: flex;
+        }
+        .borderBottom{
+            border: 1px solid $borderGrey;
+        }
+        .reviewsFilter-container{
+            display: none;
+        }
+    }
+}

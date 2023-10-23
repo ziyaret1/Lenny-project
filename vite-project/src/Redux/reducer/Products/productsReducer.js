@@ -18,7 +18,6 @@ export const productReducer = createSlice({
     builder.addCase(getAllProducts.fulfilled, (state, action) => {
       state.loading = false
       state.products = action.payload
-      console.log(action.payload);
     });
     builder.addCase(getAllProducts.rejected, (state) => {
       state.loading = false
@@ -30,7 +29,6 @@ export const productReducer = createSlice({
     builder.addCase(getLimitedProductThunk.fulfilled, (state, action) => {
       state.loading = false
       state.products = action.payload
-      console.log(action.payload, "+++");
     });
     builder.addCase(getLimitedProductThunk.rejected, (state) => {
       state.loading = false

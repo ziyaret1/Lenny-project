@@ -30,7 +30,6 @@ const SignUp = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     dispatch(fetchAuthRegister(regDatas));
-    
     if(userDatas){
       navigation("/success")
     }

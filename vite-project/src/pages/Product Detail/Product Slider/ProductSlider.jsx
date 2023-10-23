@@ -6,15 +6,13 @@ import React, { useState } from "react";
 import { getSingleProduct } from "../../../api/product.js";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/scss/image-gallery.scss";
+import PropagateLoader from "react-spinners/PropagateLoader";
 // import { useSelector } from "react-redux";
 
-
-
 const ProductSlider = ({ productId }) => {
-
   // const {loading} = useSelector((state) => state.products)
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   const [singleProd, setSingleProd] = useState(null);
   const [images, setImages] = useState([]);
@@ -28,28 +26,30 @@ const ProductSlider = ({ productId }) => {
   }, [productId]);
 
   React.useEffect(() => {
-
     if (singleProd) {
-      setLoading(true)
+      setLoading(true);
       const imageArray = singleProd?.attributes?.image?.data || [];
       const imageList = imageArray.map((image) => ({
-        original: `${import.meta.env.VITE_UPLOAD_IMAGE}${image?.attributes?.url}`,
-        thumbnail: `${import.meta.env.VITE_UPLOAD_IMAGE}${image?.attributes?.url}`,
+        original: `${import.meta.env.VITE_UPLOAD_IMAGE}${
+          image?.attributes?.url
+        }`,
+        thumbnail: `${import.meta.env.VITE_UPLOAD_IMAGE}${
+          image?.attributes?.url
+        }`,
       }));
       setImages(imageList); // Image yeni datalari gonderirik
-      setLoading(false)
+      setLoading(false);
     }
   }, [singleProd]);
-
 
   return (
     <div className="productSlider-container">
       <div className="productImages">
-        {
-          loading ?  <p>Loading...</p> 
-          :  <ImageGallery items={images} />
- 
-        }
+        {loading ? (
+          <PropagateLoader className="loading" color="#1E4C2F" />
+        ) : (
+          <ImageGallery items={images} />
+        )}
       </div>
       <div className="productInfo-buying">
         <div className="productInfo">
@@ -77,7 +77,6 @@ const ProductSlider = ({ productId }) => {
               <form>
                 <select name="">
                   <option value="">{singleProd?.attributes?.type}</option>
-                  <option value="">Wirely</option>
                 </select>
               </form>
             </div>

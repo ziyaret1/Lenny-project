@@ -31,44 +31,29 @@
     }
   }
   .input-nav {
-    width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid #f6f8fa;
     background-color: #f6f8fa;
     border-radius: 8px;
-    padding: 3px 6px;
+    padding: 2px 6px;
     .inputs {
       form {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
         .borderRight {
           border: 1px solid $borderGrey;
           height: 23px;
         }
         input {
-          width: 380px;
+          width: 600px;
           border: none;
           outline: none;
           background-color: transparent;
           font-size: 18px;
           font-weight: 500;
-        }
-        select {
-          border: none;
-          outline: none;
-          background-color: transparent;
-          cursor: pointer;
-          font-size: 18px;
-          font-weight: 500;
-          option {
-            font-size: 16px;
-            font-weight: 500;
-            outline: none;
-            background-color: #f6f8fa;
-          }
         }
       }
     }

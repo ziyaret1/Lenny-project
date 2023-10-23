@@ -5,11 +5,11 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 9px;
   background-color: white;
-  width: 400px;
+  width: 28%;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
+  padding: 23px;
  img{
   cursor: pointer;
  }
@@ -121,6 +121,25 @@
     p {
       color: red;
       font-weight: 500;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px){
+  .signOut-container {
+    width: 90%;
+    .userInfo {
+      .userName {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        h3 {
+          font-size: 18px;
+        }
+        p {
+          font-size: 15px;
+        }
+      }
     }
   }
 }

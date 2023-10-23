@@ -6,8 +6,12 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useDispatch } from "react-redux";
+import { setCurrentObj } from "../../../Redux/reducer/Categories/categoryReducer";
 
 const FilterOption = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="fullContainer">
       <div className="filterOption-cont">
@@ -32,11 +36,13 @@ const FilterOption = () => {
               <AccordionDetails>
                 <Typography>
                   <FilterCheckBox
+                    onChange={() =>
+                      dispatch(setCurrentObj({ name: "rating", value: true }))
+                    }
                     boxStarIcon={<PiStarFill />}
                     boxText="4 stars or upper"
                   />
                 </Typography>
-
                 <Typography>
                   <FilterCheckBox boxText="Same-day delivery" />
                 </Typography>
@@ -59,25 +65,43 @@ const FilterOption = () => {
               >
                 <Typography>
                   <div className="boxTitle">
-                    <h4>Location</h4>
+                    <h4>Color</h4>
                   </div>
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  <FilterCheckBox boxText="Bendung" />
+                  <FilterCheckBox
+                    boxText="White"
+                    onChange={(event) =>
+                      event ?
+                      dispatch(setCurrentObj({ name: "color", value: "White" }))
+                      : ""
+                    }
+                  />
                 </Typography>
                 <Typography>
-                  <FilterCheckBox boxText="Jakarta" />
+                <FilterCheckBox
+                    boxText="Black"
+                    onChange={() =>
+                      dispatch(setCurrentObj({ name: "color", value: "Black " }))
+                    }
+                  />
                 </Typography>
                 <Typography>
-                  <FilterCheckBox boxText="Medan" />
+                  <FilterCheckBox boxText="Green" onChange={() =>
+                      dispatch(setCurrentObj({ name: "color", value: "Green" }))
+                    }/>
                 </Typography>
                 <Typography>
-                  <FilterCheckBox boxText="Surabeya" />
+                  <FilterCheckBox boxText="Blue" onChange={() =>
+                      dispatch(setCurrentObj({ name: "color", value: "Blue" }))
+                    }/>
                 </Typography>
                 <Typography>
-                  <FilterCheckBox boxText="Jogja" />
+                  <FilterCheckBox boxText="Orange" onChange={() =>
+                      dispatch(setCurrentObj({ name: "color", value: "Orange" }))
+                    }/>
                 </Typography>
                 <p className="showAll">Show All</p>
               </AccordionDetails>

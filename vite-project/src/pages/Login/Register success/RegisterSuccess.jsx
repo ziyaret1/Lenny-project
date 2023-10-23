@@ -19,7 +19,6 @@ const RegisterSuccess = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique ad obcaecati ab.</p>
             <button className='successButton' onClick={handleGoLogin}>Sign In</button>
             </div>
-            
     </div>
   )
 }

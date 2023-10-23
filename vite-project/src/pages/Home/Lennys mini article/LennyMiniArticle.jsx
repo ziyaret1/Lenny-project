@@ -1,5 +1,7 @@
 import "./lennyMiniArticle.scss";
 import DesktopImage from "../../../assets/images/makeYourDeskImg.png";
+import miniLenni2 from '../../../assets/images/lennyminiArticleIMG2.png'
+import miniLenni3 from '../../../assets/images/lennyMiniArticleIMG3.png'
 import Buttons from "../../../components/Buttons/Buttons";
 import LennyArticleCards from "./LennyArticleCards";
 import { Link } from "react-router-dom";
@@ -26,7 +28,7 @@ Maecenas diam eu amet cras"
          </div>
          <div className="lennyCard">
         <LennyArticleCards
-          artImage={DesktopImage}
+          artImage={miniLenni2}
           artDate="22 Dec 2022"
           artContext="Make your desk more neat and beautiful"
           artParagraf="Lorem ipsum dolor sit amet consectetur. Arcu
@@ -36,7 +38,7 @@ Maecenas diam eu amet cras"
          </div>
          <div className="lennyCard">
         <LennyArticleCards
-          artImage={DesktopImage}
+          artImage={miniLenni3}
           artDate="22 Dec 2022"
           artContext="Make your desk more neat and beautiful"
           artParagraf="Lorem ipsum dolor sit amet consectetur. Arcu

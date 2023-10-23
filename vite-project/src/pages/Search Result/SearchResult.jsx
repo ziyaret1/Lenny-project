@@ -5,6 +5,7 @@ import RelevantProducts from './Relevant product/RelevantProducts'
 import './searchResult.scss'
 // import { useParams } from 'react-router-dom'
 // import React from 'react'
+// import { useLocation } from 'react-router-dom'
 // import { getProductByCategoryId } from '../../api/product'
 // import { useState } from 'react'
 
@@ -13,7 +14,6 @@ const SearchResult = () => {
 //   console.log(params.categoryId, 'params'); //! params url`i verir
 
 //   const [categoryProduct, setcategoryProduct] = useState([])
-
 //   React.useEffect(() =>{
 //      async function getProdByCategId(){
 //       const data = await getProductByCategoryId(params.categoryId)
@@ -22,10 +22,6 @@ const SearchResult = () => {
 //      getProdByCategId()
 //   }, [params.categoryId])
 //  console.log(categoryProduct, 'catProd');
-
- 
-  
-
 
   return (
     <div>

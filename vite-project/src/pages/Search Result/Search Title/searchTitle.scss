@@ -5,6 +5,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 2% 5%;
+  .fullContainer {
+    display: block;
+    z-index: 20;
+    position: fixed;
+    background-color: white;
+    left: -10px;
+    top: 34%;
+  }
   .showingProd-amounts {
     h1 {
       font-size: 24px;
@@ -21,9 +29,9 @@
     align-items: center;
     gap: 20px;
     .sortLeftDiv {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       span {
         font-size: 16px;
         color: $iconGrey;
@@ -84,6 +92,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    overflow: hidden;
     .showingProd-amounts {
       h1 {
         font-size: 18px;
@@ -94,18 +103,18 @@
       }
     }
     .sortBy-cont {
-        gap: 40px;
-        margin-top: 10px;
-      .sortLeftDiv{
-         span {
-        font-size: 14px;
-        display: none;
+      gap: 40px;
+      margin-top: 10px;
+      .sortLeftDiv {
+        span {
+          font-size: 14px;
+          display: none;
+        }
+        select {
+          padding: 10px;
+        }
       }
-      select {
-        padding: 10px;
-      }
-      }
-     
+
       .sortRightDiv {
         .filterIcon {
           display: block;

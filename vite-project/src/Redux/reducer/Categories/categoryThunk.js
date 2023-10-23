@@ -1,9 +1,9 @@
 import { instance } from "../../../api";
-import { createAsyncThunk } from "@reduxjs/toolkit"; 
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getProductByCategoryId } from "../../../api/product";
 
 export const getCategories = createAsyncThunk(
-    "categories/getCategories" ,
+    "categories/getCategories",
     async (_, { rejectWithValue }) => {
         try {
             const res = await instance.get("/categories?populate=*")
@@ -16,7 +16,7 @@ export const getCategories = createAsyncThunk(
 
 //! CategoryId
 export const getCategoriesId = createAsyncThunk(
-    "categories/getCategoriesId" ,
+    "categories/getCategoriesId",
     async ({ rejectWithValue }) => {
         try {
             const res = await instance.get("/categories?populate=*")
@@ -32,7 +32,7 @@ export const getProdbyCategoryId = createAsyncThunk(
     "categories/getProdbyCategoryId",
     async (data, { rejectWithValue }) => {
         try {
-            const res = await getProductByCategoryId(data.id, data.page)
+            const res = await getProductByCategoryId(data.id, data.page, data.color)
             return res
         } catch (error) {
             rejectWithValue(error)
@@ -40,4 +40,35 @@ export const getProdbyCategoryId = createAsyncThunk(
     }
 )
 
-//! 
+//! FILTERING
+export const getFilteredProduct = createAsyncThunk(
+    "categories/getFilteredProduct",
+    async ({
+        id,
+        rating,
+        color,
+        price,
+        type,
+        sort,
+        page,
+    },
+        thunkApi
+    ) => {
+        try {
+            console.log(color, 'color');
+            const res = await instance.get(
+                `/products?populate=*&[filters][categories][id][$eq]=${id
+                }&[filters][rating][$gte]=${rating ? "4" : ""}${color && `&[filters][color][$eq]=${color}`
+                }${type && `&[filters][type][$eq]=${type}`}${price[0] && `&[filters][price][$gte]=${price[0]}`
+                }${price[1] && `&[filters][price][$lte]=${price[1]}`
+                }${sort && `&sort=price:${sort}`}&pagination[page]=${page}&pagination[pageSize]=12`
+            );
+            return res.data;
+        }
+         catch (error) {
+            console.log(error);
+            thunkApi.rejectWithValue(error);
+        }
+    }
+);
+

@@ -6,7 +6,6 @@ import { login, register } from '../../../api/authRegister'
 export const fetchAuthRegister = createAsyncThunk(
     "auth/fetchAuthRegister",
     async (regObj, { rejectWithValue }) => { 
-      console.log(regObj, 'thunk');
       try {
         const result = await register(regObj);
         console.log(result, 'result');
@@ -25,7 +24,6 @@ export const fetchAuthRegister = createAsyncThunk(
     async (logObj, { rejectWithValue }) => { 
       try {
         const result = await login(logObj);
-
         return result;
       } 
       catch (error) {
