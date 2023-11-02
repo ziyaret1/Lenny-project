@@ -6,6 +6,9 @@
   justify-content: space-between;
   gap: 30px;
   padding: 0 20px;
+  .link{
+    text-decoration: none;
+  }
   .choiceCheckBox {
     display: flex;
     align-items: center;
@@ -33,6 +36,9 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+        h4{
+          color: $black;
+        }
         p {
           font-size: 14px;
           color: $iconGrey;
@@ -68,6 +74,9 @@
         cursor: pointer;
         font-size: 20px;
       }
+      span{
+        color: $black;
+      }
       .plus {
         font-size: 20px;
         color: $lightGreen;
@@ -79,6 +88,7 @@
       border-radius: 8px;
       padding: 10px;
       .trash {
+        color: $black;
         width: 20px;
         height: 20px;
       }

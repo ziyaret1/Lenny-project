@@ -56,7 +56,7 @@ const PopularProduct = () => {
                   prodAmount={"$" + products?.attributes?.price}
                   prodOwner="North Purwokerto"
                   prodStar={<PiStarFill />}
-                  prodPopularity={products?.attributes?.rating}
+                  prodPopularity={products?.attributes.rating}
                   dotIcon={<PiDotOutlineFill />}
                   prodSold="1,238 Sold"
                 />

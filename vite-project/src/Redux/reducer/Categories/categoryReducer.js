@@ -7,13 +7,13 @@ const initialState = {
   currentPage: 1,
   categoryProd: [],
   filterObj: {
-    color: [],
+    color: "",
     price: ["", ""],
     type: "",
     sort: "",
-    rating: "",
+    rating: false,
     id: "",
-    page: ""
+    page: "" 
   }
 }
 
@@ -72,3 +72,10 @@ export const categoryReducer = createSlice({
 export const {setCurrentPage, setCurrentObj} = categoryReducer.actions
 
 export default categoryReducer.reducer
+
+
+
+//! for different color
+ // for different color
+    // state.filterObj.color.push(action.payload);
+    // state.filterObj.color.filter((color) => color != action.payload)

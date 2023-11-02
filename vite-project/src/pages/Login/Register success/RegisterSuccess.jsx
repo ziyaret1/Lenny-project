@@ -1,14 +1,13 @@
-import { useNavigate } from 'react-router-dom'
 import './registerSuccess.scss'
 import {PiCheckBold} from 'react-icons/pi'
 
-const RegisterSuccess = () => {
-
-  const navigation = useNavigate()
+const RegisterSuccess = ({setopenSignIn, setOpenSuccess}) => {
 
   const handleGoLogin = () => {
-    navigation("/signIn")
+    setopenSignIn(true)
+    setOpenSuccess(false)
   }
+  
   return (
     <div className='registerSuccess-container'>
         <div className="successIcon">

@@ -12,6 +12,8 @@ import { setCurrentObj } from "../../../Redux/reducer/Categories/categoryReducer
 const FilterOption = () => {
   const dispatch = useDispatch();
 
+  
+ 
   return (
     <div className="fullContainer">
       <div className="filterOption-cont">
@@ -36,9 +38,16 @@ const FilterOption = () => {
               <AccordionDetails>
                 <Typography>
                   <FilterCheckBox
-                    onChange={() =>
+                  onChange={(event) =>{
+                    const {checked} = event.target
+                    if(checked){
                       dispatch(setCurrentObj({ name: "rating", value: true }))
                     }
+                    else{
+                      dispatch(setCurrentObj({ name: "rating", value: false }))
+                    }
+                  }
+                  }
                     boxStarIcon={<PiStarFill />}
                     boxText="4 stars or upper"
                   />
@@ -73,35 +82,50 @@ const FilterOption = () => {
                 <Typography>
                   <FilterCheckBox
                     boxText="White"
-                    onChange={(event) =>
-                      event ?
-                      dispatch(setCurrentObj({ name: "color", value: "White" }))
-                      : ""
+                    onChange={(event) =>{
+                      const {checked} = event.target
+                      if(checked){
+                        dispatch(setCurrentObj({ name: "color", value: "White" }))
+                      }
+                      else{
+                        dispatch(setCurrentObj({ name: "color", value: "" }))
+                      }
+                    }
                     }
                   />
                 </Typography>
                 <Typography>
                 <FilterCheckBox
                     boxText="Black"
-                    onChange={() =>
-                      dispatch(setCurrentObj({ name: "color", value: "Black " }))
+                    onChange={(event) =>{
+                      const {checked} = event.target
+                      if(checked){
+                        dispatch(setCurrentObj({ name: "color", value: "Black " }))
+                      }
+                      else{
+                        dispatch(setCurrentObj({ name: "color", value: "" }))
+                      }
+                    }
                     }
                   />
                 </Typography>
                 <Typography>
-                  <FilterCheckBox boxText="Green" onChange={() =>
-                      dispatch(setCurrentObj({ name: "color", value: "Green" }))
+                  <FilterCheckBox boxText="Green"  onChange={(event) =>{
+                      const {checked} = event.target
+                      if(checked){
+                        dispatch(setCurrentObj({ name: "color", value: "Green" }))
+                      }
+                      else{
+                        dispatch(setCurrentObj({ name: "color", value: "" }))
+                      }
+                    }
                     }/>
                 </Typography>
                 <Typography>
-                  <FilterCheckBox boxText="Blue" onChange={() =>
-                      dispatch(setCurrentObj({ name: "color", value: "Blue" }))
-                    }/>
+                  <FilterCheckBox boxText="Blue"/>
                 </Typography>
                 <Typography>
-                  <FilterCheckBox boxText="Orange" onChange={() =>
-                      dispatch(setCurrentObj({ name: "color", value: "Orange" }))
-                    }/>
+                  <FilterCheckBox boxText="Orange"/>
                 </Typography>
                 <p className="showAll">Show All</p>
               </AccordionDetails>
@@ -123,17 +147,23 @@ const FilterOption = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  <FilterCheckBox boxText="orupper" />
+                  <FilterCheckBox boxText="Electronic"/>
                 </Typography>
 
                 <Typography>
-                  <FilterCheckBox boxText="Same-day delivery" />
+                  <FilterCheckBox boxText="Fashion" />
                 </Typography>
                 <Typography>
-                  <FilterCheckBox boxText="COD" />
+                  <FilterCheckBox boxText="Accessories" />
                 </Typography>
                 <Typography>
-                  <FilterCheckBox boxText="Discount" />
+                  <FilterCheckBox boxText="Book" />
+                </Typography>
+                <Typography>
+                  <FilterCheckBox boxText="Action Figure" />
+                </Typography>
+                <Typography>
+                  <FilterCheckBox boxText="Gaming" />
                 </Typography>
                 <p className="showAll">Show All Categories</p>
               </AccordionDetails>
@@ -193,3 +223,20 @@ const FilterOption = () => {
 };
 
 export default FilterOption;
+
+
+//! for second color 
+// (reducerde array formasinda olmalidirlar amma)
+// const {filterObj} = useSelector((state) => state.categories)
+
+// const handleDifferentColor = (e) => {
+//   if(!filterObj.color.includes(e.target.name)){
+//     dispatch(setCurrentObj({
+//       name: e.target.name,
+//       value: ""
+//     }))
+//   }
+//   else{
+//     dispatchEvent(setCurrentObj(e.target.name))
+//   }
+// }

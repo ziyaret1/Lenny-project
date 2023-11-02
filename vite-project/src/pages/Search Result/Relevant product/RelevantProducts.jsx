@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProdbyCategoryId } from "../../../Redux/reducer/Categories/categoryThunk";
 import React from 'react'
 import { setCurrentPage } from "../../../Redux/reducer/Categories/categoryReducer";
-// import { getFilteredProduct } from "../../../Redux/reducer/Categories/categoryThunk";
 
 const RelevantProducts = () => {
 
@@ -24,13 +23,9 @@ const RelevantProducts = () => {
     dispatch(getProdbyCategoryId({ 
       id: params.categoryId,
       page: currentPage,
-      color: filterObj.color
+      color: filterObj.color,
+      rating: filterObj.rating
     }))
-    // dispatch(getFilteredProduct({
-    //   color: filterObj.color,
-    //   id: params.categoryId,
-    //   page: currentPage
-    // }))
   }, [currentPage, dispatch, filterObj, params.categoryId])
 
   const handleChangePage = (e, p) => {
@@ -61,7 +56,7 @@ const RelevantProducts = () => {
                   prodAmount={"$" + product?.attributes?.price}
                   prodOwner="North Purwokerto"
                   prodStar={<PiStarFill />}
-                  prodPopularity="4,8" 
+                  prodPopularity={product?.attributes.rating} 
                   dotIcon={<PiDotOutlineFill />} 
                   prodSold="1,238 Sold"
                 />

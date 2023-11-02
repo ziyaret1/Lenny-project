@@ -1,6 +1,6 @@
 @import "../../../assets/styles/variables.scss";
 
-.registerSuccess-container {
+.unsuccessful-container {
   width: 450px;
   border: 1px solid $borderGrey;
   border-radius: 8px;
@@ -8,20 +8,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   padding: 40px;
-  .successIcon {
-    .doneIcon {
-      width: 100px;
-      height: 100px;
+  .unsuccessIcon {
+    .notDoneIcon {
+      width: 120px;
+      height: 120px;
       font-weight: 500;
       background-color: $borderGrey;
       padding: 20px;
       border-radius: 100%;
-      color: $lightGreen;
+      color: red;
     }
   }
-  .successRes {
+  .unsuccessRes {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -34,7 +34,7 @@
       font-size: 16px;
       line-height: 20px;
     }
-    .successButton {
+    .unsuccessButton {
       cursor: pointer;
       border: 1px solid $darkGreen;
       background-color: $darkGreen;
@@ -44,19 +44,35 @@
       font-weight: 500;
       height: 48px;
     }
+    .unsuccessButtonForUp {
+      cursor: pointer;
+      border: 1px solid $darkGreen;
+      background-color: white;
+      border-radius: 8px;
+      color: $darkGreen;
+      font-size: 18px;
+      font-weight: 500;
+      height: 48px;
+    }
   }
 }
 
 @media only screen and (max-width: 450px) {
-  .registerSuccess-container {
+  .unsuccessful-container {
     width: 330px;
     padding: 20px;
-    .successIcon {
-      .doneIcon {
-        padding: 20px;
+    .unsuccessIcon {
+        .notDoneIcon {
+          width: 90px;
+          height: 90px;
+          font-weight: 500;
+          background-color: $borderGrey;
+          padding: 20px;
+          border-radius: 100%;
+          color: red;
+        }
       }
-    }
-    .successRes {
+    .unsuccessRes {
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -69,15 +85,11 @@
         font-size: 14px;
         line-height: 20px;
       }
-      .successButton {
-        cursor: pointer;
-        border: 1px solid $darkGreen;
-        background-color: $darkGreen;
-        border-radius: 8px;
-        color: white;
+      .unsuccessButton {
         font-size: 16px;
-        font-weight: 500;
-        height: 48px;
+      }
+      .unsuccessButtonForUp {
+        font-size: 16px;
       }
     }
   }

@@ -1,9 +1,14 @@
 import './choicesProduct.scss'
 import logitechLogo from '../../../assets/images/logitechMiniLogo.png'
 import ChoicesProductCard from './ChoicesProductCard'
-import cardProductImage from '../../../assets/images/cardProductImage.png'
+import {useSelector} from 'react-redux'
 
 const ChoicesProduct = () => {
+  
+  const {cart} = useSelector((state) => state.shopCard)
+  console.log(cart, 'caaart');
+
+
   return (
     <div className='choicesProduct-container'>
         <div className="productOwner">
@@ -14,11 +19,19 @@ const ChoicesProduct = () => {
             </div>
         </div>
         <div className="productsList">
-        <ChoicesProductCard productImage={cardProductImage} productName="Logitech G435 Gaming Headset" productPrise="$280"/>
-        <div className="borderBottom"></div>
-        <ChoicesProductCard productImage={cardProductImage} productName="Logitech G435 Gaming Headset" productPrise="$280"/>
-        <div className="borderBottom"></div>
-        <ChoicesProductCard productImage={cardProductImage} productName="Logitech G435 Gaming Headset" productPrise="$280"/>
+        {
+            cart.map(({ productId,productName, productPrice, productImg }) => {
+              return(
+                   <>
+                <ChoicesProductCard productId={productId} key={productId} productImage={productImg} productName={productName} productPrise={productPrice}/>
+                <div className="borderBottom"></div>
+                </>
+                )
+            })
+          }
+          
+        {/* <ChoicesProductCard productImage={cardProductImage} productName="Logitech G435 Gaming Headset" productPrise="$280"/>
+        <div className="borderBottom"></div> */}
     </div>
     </div>
   )

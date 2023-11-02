@@ -5,14 +5,32 @@ import chartIcon from "../../../assets/icons/shopping-cartMiniIcon.png";
 import React, { useState } from "react";
 import { getSingleProduct } from "../../../api/product.js";
 import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/scss/image-gallery.scss";
+import "react-image-gallery/styles/scss/image-gallery.scss"; 
 import PropagateLoader from "react-spinners/PropagateLoader";
-// import { useSelector } from "react-redux";
+import { addToCart } from "../../../Redux/reducer/Shopping Card/shopCardReducer";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProductSlider = ({ productId }) => {
-  // const {loading} = useSelector((state) => state.products)
 
   const [loading, setLoading] = useState(true);
+
+
+  const dispatch = useDispatch()
+  const handleSendCard = () => {
+    dispatch(addToCart(
+      {
+      productName: singleProd?.attributes?.title,
+      productId: productId,
+      productPrice: singleProd?.attributes?.price,
+      productImg: singleProd?.attributes?.image?.data[0].attributes?.url,
+      productOriginalPrice: singleProd?.attributes?.price,
+      }
+      ));
+  };
+
+  //! example
+  const exam = useSelector((state) => state.shopCard)
+  console.log(exam, 'eexam');
 
   const [singleProd, setSingleProd] = useState(null);
   const [images, setImages] = useState([]);
@@ -24,6 +42,9 @@ const ProductSlider = ({ productId }) => {
     };
     getSingleProd();
   }, [productId]);
+
+  console.log(singleProd?.attributes?.image?.data[0].attributes?.url, 'imaaage');
+
 
   React.useEffect(() => {
     if (singleProd) {
@@ -56,7 +77,7 @@ const ProductSlider = ({ productId }) => {
           <h1>{singleProd?.attributes?.title}</h1>
           <div className="productRatingDiv">
             <PiStarFill className="star" />
-            <p>{singleProd?.attributes?.rating}</p>
+            <p>{singleProd?.attributes.rating}</p>
             <PiDotOutlineFill className="dot" />
             <p>1,248 Sold</p>
           </div>
@@ -94,8 +115,8 @@ const ProductSlider = ({ productId }) => {
           </div>
           <div className="prodButtons">
             <button className="buyButton">Buy Now</button>
-            <button className="addChartButton">
-              <img src={chartIcon} alt="" />
+            <button className="addChartButton" onClick={handleSendCard}>
+              <img src={chartIcon} alt=""/>
               Add to Chart
             </button>
           </div>

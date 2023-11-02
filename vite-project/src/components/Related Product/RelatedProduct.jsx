@@ -22,6 +22,7 @@ React.useEffect(() =>{
   console.log(limit, 'limit');
 }, [limit])
 
+
   return (
     <div className='relatedProduct-container'>
         <div className="relatedProduct-title">
@@ -29,10 +30,12 @@ React.useEffect(() =>{
             <Buttons color="white" text="View Detail" textColor="#1E4C2F"/>
         </div>
         <div className="productsList">
-        <Link className='productsList' to="/">
-          {products?.data?.map(({ id, attributes }) => {
-          return (
-        <ProductCard
+    {
+      products?.data?.map(({ id, attributes }) => {
+        return (
+          <Link className='productsList' key={id}
+          to={`/productdetail/${id}`}>
+          <ProductCard
               key={id}
               prodImage={attributes?.image?.data[0]?.attributes?.url}
               prodName={attributes?.title}
@@ -43,10 +46,9 @@ React.useEffect(() =>{
               dotIcon={<PiDotOutlineFill />}
               prodSold="1,238 Sold"
             />
+             </Link>
           );
         })}
-        </Link>
-        
         </div>
     </div>
   )

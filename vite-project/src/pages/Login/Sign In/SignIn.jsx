@@ -1,30 +1,14 @@
 import "./signIn.scss";
-import React from "react";
+import React, { useState } from "react";
 import { BiLogoFacebook } from "react-icons/bi";
 import { PiEye, PiEyeSlash } from "react-icons/pi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchAuthLogin } from "../../../Redux/reducer/Auth/authThunk";
+import { BiErrorAlt } from 'react-icons/bi'
+// import PropagateLoader from "react-spinners/PropagateLoader";
+// <PropagateLoader className="loading" color="#1E4C2F" />
 
-//!modal
-// import Box from '@mui/material/Box';
-// import Modal from '@mui/material/Modal';
-// import SignUp from '../Sign Up/SignUp'
-// const style = {
-//   position: 'absolute',
-//   top: '50%',
-//   left: '50%',
-//   transform: 'translate(-50%, -50%)',
-//   width: 'auto',
-//   bgcolor: 'background.paper',
-//   border: 'none',
-//   borderRadius: '8px',
-//   boxShadow: 'none',
-//   p: 0,
-//   outline: 'none'
-// };
-
- const SignIn = ({setopenSignIn, setOpenSignUp}) => {
-
+const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const toggleShowPassword = () => {
@@ -32,6 +16,8 @@ import { fetchAuthLogin } from "../../../Redux/reducer/Auth/authThunk";
   };
 
   const dispatch = useDispatch();
+
+  const { logToken, logError } = useSelector((state) => state.auth);
 
   const [logData, setLogData] = React.useState({
     identifier: "",
@@ -46,18 +32,37 @@ import { fetchAuthLogin } from "../../../Redux/reducer/Auth/authThunk";
   };
 
   // const navigation = useNavigate()
+  const [hasLogToken, setHasLogToken] = useState(false);
+  const [haveError, setHaveError] = useState(false);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchAuthLogin(logData))
+    dispatch(fetchAuthLogin(logData));
+    if (logError) {
+      setHaveError(true);
+    } else {
+      setHaveError(false);
+    }
   };
 
-  // const [open, setOpen] = React.useState(false);
+  console.log(logError, "hasLogERROR");
+
+  React.useEffect(() => {
+    if (logToken) {
+      setHasLogToken(true);
+    }
+  }, [logToken]);
+  React.useEffect(() => {
+    if (hasLogToken) {
+      setopenSignIn(false);
+      setOpen(false);
+    }
+  }, [hasLogToken, setOpen, setOpenSignUp, setopenSignIn]);
+
   const handleCloseSignIn = () => {
-   setopenSignIn(false)
-   setOpenSignUp(true)
-  }
-  // const handleClose = () => setOpen(false);
+    setopenSignIn(false);
+    setOpenSignUp(true);
+  };
 
   return (
     <div className="signIn-container">
@@ -65,6 +70,12 @@ import { fetchAuthLogin } from "../../../Redux/reducer/Auth/authThunk";
         <h2>Sign In</h2>
       </div>
       <div className="containerInput">
+        {haveError ? (
+          <p className="warningForError">
+            <BiErrorAlt className="errorIcon"/>
+            Your email address or password is incorrect!
+          </p>
+        ) : null}
         <form onSubmit={handleOnSubmit}>
           <label htmlFor="">Phone Number or Email</label>
           <input
@@ -96,20 +107,12 @@ import { fetchAuthLogin } from "../../../Redux/reducer/Auth/authThunk";
           </div>
         </form>
         <span onClick={handleCloseSignIn}>{"Don't have an account?"}</span>
-        {/* <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <SignUp/>
-        </Box>
-      </Modal> */}
       </div>
       <div className="containerButtons">
         <div className="signinbtn">
-          <button type="submit" onClick={handleOnSubmit}>Sign In</button>
+          <button type="submit" onClick={handleOnSubmit}>
+            Sign In
+          </button>
         </div>
         <div className="otherMethod">
           <div className="leftBorder"></div>

@@ -5,52 +5,81 @@ import { BiSolidUser } from "react-icons/bi";
 import shoppingCart from "../../assets/icons/shopping-cart.png";
 import notification from "../../assets/icons/notification.png";
 import message from "../../assets/icons/sms.png";
-// import userPhoto from '../../assets/images/profilePhoto.png'
-import hambMenu from '../../assets/icons/menu.png'
+// import userPhoto from "../../assets/images/profilePhoto.png";
 import { Link } from "react-router-dom";
-import React, { useState } from 'react'
-import SignUp from '../../pages/Login/Sign Up/SignUp'
-
-//!modal
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
+import React, { useState } from "react";
+import SignUp from "../../pages/Login/Sign Up/SignUp";
+import SignOut from "../Sign Out/SignOut";
+import RegisterSuccess from "../../pages/Login/Register success/RegisterSuccess";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
 import SignIn from "../../pages/Login/Sign In/SignIn";
+import { useDispatch, useSelector } from "react-redux";
+import { getSearchingData } from "../../Redux/reducer/Search/searchThunk";
+
+//! MODAL
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 'auto',
-  bgcolor: 'background.paper',
-  border: 'none',
-  borderRadius: '8px',
-  boxShadow: 'none',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "auto",
+  bgcolor: "background.paper",
+  border: "none",
+  borderRadius: "8px",
+  boxShadow: "none",
   p: 0,
-  outline: 'none'
+  outline: "none",
 };
 
 const Header = () => {
 
-  const [openSignIn, setopenSignIn] = useState(false)
+  const {cart} = useSelector((state) => state.shopCard)
 
-  const [openSignUp, setOpenSignUp] = useState(false)
-
+  const [openSignIn, setopenSignIn] = useState(false);
+  const [openSignUp, setOpenSignUp] = useState(false);
+  const [openSuccess, setOpenSuccess] = useState(false);
+  // const [openUnsuccess, setOpenUnsuccess] = useState(false);
+  const [openLogout, setOpenLogout] = useState(false);
   const [open, setOpen] = React.useState(false);
+
   const handleOpen = () => {
     setopenSignIn(true);
-    setOpen(true)
-  }
+    setOpen(true);
+  };
   const handleClose = () => {
     setOpen(false);
-    setopenSignIn(false)
-    setOpenSignUp(false)
-  }
+    setopenSignIn(false);
+    setOpenSignUp(false);
+    setOpenSuccess(false);
+    setOpenLogout(false);
+  };
 
-
+  const handleOpenLogout = () => {
+    setopenSignIn(false);
+    setOpenLogout(!openLogout);
+  };
+  //! SEARCH
+  const dispatch = useDispatch();
+  const { searchDatas } = useSelector((state) => state.search);
+  const [searchInput, setSearchInput] = useState("");
+  const handleOnSearchChange = (e) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  };
   const handleOnSearch = (e) => {
-    e.preventDefault()
-    console.log('clickSearch');
-  }
+    e.preventDefault();
+    dispatch(getSearchingData(searchInput));
+  };
+  const handleDeleteInput = () => {
+    setSearchInput("");
+  };
+
+  //! AUTH
+  const { logToken, userDatas } = useSelector((state) => state.auth);
+  const firstLetter = userDatas.username
+    ? userDatas.username.charAt(0).toUpperCase()
+    : "";
 
   return (
     <div className="header-container">
@@ -61,50 +90,104 @@ const Header = () => {
       </div>
       <div className="input-nav">
         <div className="inputs">
-          <form action="" onSubmit={handleOnSearch}>
+          <form action="" onChange={handleOnSearch}>
             <label htmlFor="select"></label>
-            <input type="text" placeholder="Search on lenny..." />
+            <input
+              type="text"
+              placeholder="Search on lenny..."
+              value={searchInput}
+              onChange={handleOnSearchChange}
+            />
           </form>
         </div>
+        <div className="searchResults">
+          {searchInput &&
+            searchDatas?.data?.map(({ id, attributes }) => {
+              return (
+                <Link
+                  onClick={handleDeleteInput}
+                  className="link"
+                  key={id}
+                  to={`/productdetail/${id}`}
+                >
+                  <div className="searchResData" key={id}>
+                    <img
+                      src={`${import.meta.env.VITE_UPLOAD_IMAGE}${
+                        attributes.image?.data[0].attributes.url
+                      }`}
+                      alt=""
+                    />
+                    <div className="searchDataTitle">
+                      <h4>{attributes.title}</h4>
+                      <h5>${attributes.price}</h5>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+        </div>
         <div className="search-div">
-          <CiSearch className="search" type="submit" onClick={handleOnSearch}/>
+          <CiSearch className="search" type="submit" onClick={handleOnSearch} />
         </div>
       </div>
-      <div className="input-mobile">
-        <form action="" >
-          <input type="text" placeholder="Search product"/>
-          <CiSearch className="search"/>
-        </form>
-      </div>
       <div className="basket-user">
-          <img src={shoppingCart} className="basket" alt=""/>
+        <Link className="linkBasket" to="/shopcard">
+          <img src={shoppingCart} className="basket" alt="" />
+        </Link>
+        {
+          cart.length > 0 ? <p className="productInCart">{cart.length}</p> : null
+        }
         {/* <p className="productInCart">6</p> */}
         <img src={notification} className="notification" alt="" />
         <img src={message} className="message" alt="" />
         <div className="borderHead"></div>
-        <BiSolidUser className="user"  onClick={handleOpen}/>
+        {/* <BiSolidUser className="user" onClick={handleOpen} /> */}
         <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          {
-            openSignIn && <SignIn setopenSignIn={setopenSignIn} setOpenSignUp={setOpenSignUp}/>
-          }
-          {
-            openSignUp &&  <SignUp/>
-          }
-        </Box>
-      </Modal>
-        <img className="hambMenu" src={hambMenu} alt="" />
-        {/* <img src={userPhoto} className='userPhoto' alt="" /> */}
-        {/* <p className="userName">Z</p> */}
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            {openSignIn && (
+              <SignIn
+                setOpen={setOpen}
+                setopenSignIn={setopenSignIn}
+                setOpenSignUp={setOpenSignUp}
+              />
+            )}
+            {openSignUp && (
+              <SignUp
+                setOpenSuccess={setOpenSuccess}
+                setOpenSignUp={setOpenSignUp}
+                setopenSignIn={setopenSignIn}
+                setOpen={setOpen}
+              />
+            )}
+            {openSuccess && (
+              <RegisterSuccess
+                setopenSignIn={setopenSignIn}
+                setOpenSuccess={setOpenSuccess}
+              />
+            )}
+          </Box>
+        </Modal>
+        {/* <img className="hambMenu" src={hambMenu} alt="" /> */}
+        {logToken ? (
+          <p className="userAvatar" onClick={handleOpenLogout}>
+            {firstLetter}
+          </p>
+        ) : (
+          <BiSolidUser className="user" onClick={handleOpen} />
+        )}
+        {openLogout && (
+          <SignOut setOpenLogout={setOpenLogout} setOpen={setOpen} />
+        )}
       </div>
-      {/* <div className="signUp">{signUp && <SignUp />}</div> */}
     </div>
   );
 };
 
 export default Header;
+
+//<img src={userPhoto} className='userPhoto' alt="" onClick={handleOpenLogout}/>

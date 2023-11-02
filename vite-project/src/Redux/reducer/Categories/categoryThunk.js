@@ -25,14 +25,15 @@ export const getCategoriesId = createAsyncThunk(
             rejectWithValue(error)
         }
     }
-)
+) 
 
 //! GET PRODUCT BY CATEGORY ID
 export const getProdbyCategoryId = createAsyncThunk(
     "categories/getProdbyCategoryId",
     async (data, { rejectWithValue }) => {
         try {
-            const res = await getProductByCategoryId(data.id, data.page, data.color)
+            const res = await getProductByCategoryId(data.id, data.page, data.color, data.rating)
+            console.log(data.rating, 'datarating');
             return res
         } catch (error) {
             rejectWithValue(error)
@@ -56,6 +57,7 @@ export const getFilteredProduct = createAsyncThunk(
     ) => {
         try {
             console.log(color, 'color');
+            console.log(rating, 'rating');
             const res = await instance.get(
                 `/products?populate=*&[filters][categories][id][$eq]=${id
                 }&[filters][rating][$gte]=${rating ? "4" : ""}${color && `&[filters][color][$eq]=${color}`
@@ -66,7 +68,6 @@ export const getFilteredProduct = createAsyncThunk(
             return res.data;
         }
          catch (error) {
-            console.log(error);
             thunkApi.rejectWithValue(error);
         }
     }

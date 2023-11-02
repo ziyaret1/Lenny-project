@@ -6,4 +6,4 @@ export const instance = axios.create ({
     Authorization: "bearer " + import.meta.env.VITE_API_TOKEN,
     "Content-Type": "application/json"
     },
-});
+}); 

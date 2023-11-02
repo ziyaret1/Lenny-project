@@ -3,6 +3,8 @@ import promoIcon from '../../../assets/icons/promo.png'
 import {RxChevronRight} from 'react-icons/rx'
 
 const CheckoutSummary = () => {
+
+
   return (
     <div className='checkoutSummary-container'>
         <div className="checkoutSum-title">

@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { login, register } from '../../../api/authRegister'
 
 
-//! REGISTER THUNK
+//! REGISTER THUNK 
 export const fetchAuthRegister = createAsyncThunk(
     "auth/fetchAuthRegister",
     async (regObj, { rejectWithValue }) => { 
@@ -18,12 +18,15 @@ export const fetchAuthRegister = createAsyncThunk(
     } 
   );
 
+
   //! LOGIN THUNK
   export const fetchAuthLogin = createAsyncThunk(
     "auth/fetchAuthLogin",
     async (logObj, { rejectWithValue }) => { 
+      console.log(logObj, 'logobj');
       try {
         const result = await login(logObj);
+        console.log(result.jwt, 'reesLogin');
         return result;
       } 
       catch (error) {

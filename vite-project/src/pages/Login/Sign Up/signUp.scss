@@ -20,6 +20,44 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    .genderInput{
+      display: flex;
+      flex-direction: column;
+      border: none;
+      border-radius: 8px;
+      margin-top: 6px;
+      label{
+        display: flex;
+        align-items: center;
+        margin-bottom: -8px;
+        font-size: 16px;
+      }
+      input[type="radio"]{
+        margin-top: -5px;
+        margin-right: 8px;
+        cursor: pointer;
+        width: 16px;
+      }
+    }
+    .warningErrorRegister{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .errorIcon{
+        width: 30px;
+        height: 30px;
+      }
+      width: 390px;
+      color: #d0021b;
+      line-height: 15px;
+      padding: 14px 20px 14px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      border: 1px solid;
+      border-radius: 3px;
+      background-color: #fff4f6;
+    }
     form {
       display: flex;
       flex-direction: column;
@@ -58,7 +96,8 @@
       color: $lightGreen;
       font-size: 14px;
       font-weight: 500;
-      margin-left: 72%;
+      margin-left: 69%;
+      cursor: pointer;
     }
   }
   .signUpButtons {
@@ -133,6 +172,23 @@
     }
     .signUpInput {
       gap: 18px;
+      .warningErrorRegister{
+        .errorIcon{
+          width: 20px;
+          height: 20px;
+        }
+        width: 290px;
+        color: #d0021b;
+        line-height: 15px;
+        font-size: 13px;
+        padding: 6px 16px 6px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        border: 1px solid;
+        border-radius: 3px;
+        background-color: #fff4f6;
+      }
       form {
         gap: 13px;
         input {
@@ -141,7 +197,7 @@
       }
       span {
         font-size: 14px;
-        margin-left: 63%;
+        margin-left: 59%;
       }
     }
     .signUpButtons {

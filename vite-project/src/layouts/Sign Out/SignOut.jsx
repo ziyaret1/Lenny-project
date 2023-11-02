@@ -6,8 +6,21 @@ import purchaseIcon from "../../assets/icons/purchase.png";
 import wishList from "../../assets/icons/heart.png";
 import settingIcon from "../../assets/icons/setting-2.png";
 import logoutIcon from "../../assets/icons/logout.png";
+import { useDispatch, useSelector } from "react-redux";
+import { resetAuthState } from "../../Redux/reducer/Auth/authReducer";
 
-const SignOut = () => {
+const SignOut = ({setOpenLogout, setOpen}) => {
+
+  const {userDatas} = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
+  console.log(userDatas, 'logoutUserdataas');
+
+  const clickSignOut = () => { 
+    dispatch(resetAuthState());
+    setOpenLogout(false)
+    setOpen(false)
+  }
+
   return (
     <div className="signOut-container">
       <div className="userInfo">
@@ -15,7 +28,7 @@ const SignOut = () => {
           <img src={userPhoto} alt="" />
         </div>
         <div className="userName">
-          <h3>Yelena Stacia</h3>
+          <h3>{userDatas.username}</h3>
           <p>Platinum member</p>
         </div>
       </div>
@@ -60,8 +73,8 @@ const SignOut = () => {
       </div>
       <div className="bottomBorder"></div>
       <div className="logOut">
-        <img src={logoutIcon} alt="" />
-        <p>Sign Out</p>
+        <img src={logoutIcon} alt="" onClick={clickSignOut}/>
+        <p onClick={clickSignOut}>Sign Out</p>
       </div>
     </div>
   );

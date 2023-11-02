@@ -1,12 +1,13 @@
 import React from "react";
 import "./signUp.scss";
+import {BiErrorAlt} from 'react-icons/bi'
 import { BiLogoFacebook } from "react-icons/bi";
 import { PiEye, PiEyeSlash } from "react-icons/pi";
 import { fetchAuthRegister } from "../../../Redux/reducer/Auth/authThunk";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
+const SignUp = ({setOpenSuccess,  setOpenSignUp, setopenSignIn}) => {
   // const {jwtToken} = useSelector((state) => state.auth)
   // const [seePassword, setSeePassword] = React.useState("");
   const [showPassword, setShowPassword] = React.useState(false);
@@ -15,8 +16,14 @@ const SignUp = () => {
   };
 
   const dispatch = useDispatch(); 
-  
-  const { userDatas} = useSelector((state) => state.auth)
+   
+  const { jwtToken, resError} = useSelector((state) => state.auth)
+  const [hasToken, setHasToken] = React.useState(false); // Local state variable
+  const [haveResError, setHaveResError] = React.useState(false);
+
+  console.log(hasToken, 'ujassssssssssssssss');
+  console.log(jwtToken, 'jwtToooken');
+
 
   const [regDatas, setRegDatas] = React.useState({
     username: "",
@@ -25,15 +32,39 @@ const SignUp = () => {
   });
   console.log(regDatas);
 
-  const navigation = useNavigate() 
-
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = (e) => { 
     e.preventDefault();
     dispatch(fetchAuthRegister(regDatas));
-    if(userDatas){
-      navigation("/success")
+    if (resError) {
+      setHaveResError(true);
+    } else {
+      setHaveResError(false);
     }
-  };
+  }
+
+  //! FIRST WAY (which gives some error)
+  // React.useEffect(() => {
+  //   if (jwtToken) {
+  //     setHasToken(true);
+  //   }
+  // }, [jwtToken]);
+  // if (hasToken) {
+  //   setOpenSignUp(false);
+  //   setOpenSuccess(true);
+  // }
+
+  //! SECOND WAY (gpt offer)
+  React.useEffect(() => {
+    if (jwtToken) {
+      setHasToken(true);
+    }
+  }, [jwtToken]);
+  React.useEffect(() => {
+    if (hasToken) {
+      setOpenSignUp(false);
+      setOpenSuccess(true);
+    }
+  }, [hasToken, setOpenSignUp, setOpenSuccess]);
 
   const handleChangeValue = (e) => {
     setRegDatas((prev) => ({
@@ -42,12 +73,23 @@ const SignUp = () => {
     }));
   };
 
+  const handleOpenHaveAccount = () => {
+    setOpenSignUp(false)
+    setopenSignIn(true)
+  }
+
   return (
     <div className="signUp-container">
       <div className="signUp-title">
         <h2>Sign Up</h2>
       </div>
       <div className="signUpInput">
+          {haveResError ? (
+         <p className="warningErrorRegister">
+         <BiErrorAlt className="errorIcon"/>
+       The email address is unavailable. Please try another email address.!
+           </p>
+        ) : null}
         <form onSubmit={handleOnSubmit}>
           <label htmlFor="">Name</label>
           <input
@@ -85,8 +127,32 @@ const SignUp = () => {
               )}
             </span>
           </div>
+          {/* <div className="genderInput">
+      <h4>Gender Selection</h4>
+      <label>
+        <input
+          type="radio"
+          name="male"
+          value={regDatas.male}
+            onChange={handleChangeValue}
+          // value="male"
+          checked={regDatas.male === 'male'}
+          // onChange={handleGenderChange}
+        />
+        Male
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="female"
+          value={regDatas.female}
+          onChange={handleChangeValue}
+        />
+        Female
+      </label>
+      </div> */}
         </form>
-        <span>Getting Trouble?</span>
+        <span onClick={handleOpenHaveAccount}>Have an account?</span>
       </div>
       <div className="signUpButtons">
         <div className="signUpbtn">
