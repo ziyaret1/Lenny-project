@@ -17,11 +17,17 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    .userAvatar{
+      width: 54px;
+      height: 54px;
+      font-size: 30px;
+      margin-top: -2px;
+    }
 
     .userName {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       h3 {
         font-size: 20px;
         color: $black;

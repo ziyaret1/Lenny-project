@@ -11,15 +11,12 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 
 const PopularProduct = () => {
   const [loading, setLoading] = useState(false);
-
   const [limit, setLimit] = React.useState(8);
   const [counter, setCounter] = React.useState(1);
-
   const changeLimit = () => {
     setLimit((prev) => prev + 8);
     setCounter((prev) => prev + 1);
   };
-
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
 
@@ -30,6 +27,8 @@ const PopularProduct = () => {
   }, [limit, dispatch]);
 
   console.log(products, "limitedProd");
+
+  
 
   return (
     <div className="popularProduct-container">
@@ -42,13 +41,13 @@ const PopularProduct = () => {
           <PropagateLoader className="loading" color="#1E4C2F" />
         ) : (
           products?.map((products) => {
+            console.log(products?.attributes.isWishList, "iswishList");
             return (
               <Link
                 key={products.id}
                 className="popProductCards"
                 to={`/productdetail/${products.id}`}
-              >
-                <ProductCard
+              ><ProductCard
                   prodImage={
                     products?.attributes?.image?.data[0]?.attributes?.url
                   }

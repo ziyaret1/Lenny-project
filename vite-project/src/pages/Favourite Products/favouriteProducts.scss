@@ -1,0 +1,10 @@
+@import "../../assets/styles/variables.scss";
+
+.favProducts-container {
+  padding: 2% 5%;
+
+  .favourites {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

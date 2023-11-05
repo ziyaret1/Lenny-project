@@ -6,9 +6,9 @@ const initialState = {
   logToken: "",
   userDatas: {},
   user: null,
-  resError: "",
-  logError: "",
+  // resError: "",
   status: "", 
+  error: ""
 }
 // Sinxron function`lar bura yazilir, mentiq daima buraya yazilir, asagidakilar action`dir
 export const authReducer = createSlice({
@@ -20,10 +20,14 @@ export const authReducer = createSlice({
       state.logToken = "",
       state.userDatas = {};
       state.user = null;
-      state.resError = "",
-      state.logError = "",
+      // state.resError = "",
+      // state.logError = "",
       state.status = "";
+      state.error = ""
     },
+      updateJwtToken: (state, action) => {
+        state.jwtToken = action.payload;
+      },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAuthRegister.pending, (state) => {
@@ -36,11 +40,12 @@ export const authReducer = createSlice({
     });
     builder.addCase(fetchAuthRegister.rejected, (state, action) => {
       state.status = "error"
-      state.resErrorerror = action.payload
+      // state.resError = action.error.message
       state.jwtToken = ""
+      state.error = action.payload
     });
 
-    //! LOGIN 
+    //! LOGIN  
     
     builder.addCase(fetchAuthLogin.pending, (state) => {
       state.status = "pending"
@@ -49,16 +54,15 @@ export const authReducer = createSlice({
       state.status = "success"
       state.userDatas = action.payload.user
       state.logToken = action.payload.jwt
-      console.log(state.status, 'statestatus');
     });
     builder.addCase(fetchAuthLogin.rejected, (state, action) => {
       state.status = "error";
-      state.logError = action.payload;
       state.logToken = ""
+      state.error = action.payload
     });
   }
 })
 
-export const {resetAuthState} = authReducer.actions
+export const {resetAuthState, updateJwtToken} = authReducer.actions
 
 export default authReducer.reducer

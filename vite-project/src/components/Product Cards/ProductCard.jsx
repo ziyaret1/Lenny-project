@@ -2,7 +2,7 @@ import "./productCard.scss";
 import { PiHeart } from "react-icons/pi";
 
 const ProductCard = ({
-  prodImage,
+  prodImage, 
   prodImage2,
   prodName,
   prodAmount,
@@ -17,13 +17,17 @@ const ProductCard = ({
   let prodStr = prodName
   let parseProdStr = prodStr.length > 20 ? prodStr.slice(0, 20) + "..." : prodStr
 
+  const handleIsLike = (e) => {
+    e.preventDefault(); 
+    console.log('cliii');
+  }
 
   return (
     <div className="productCard-container" onClick={onClick}>
       <div className="prodCardCont">
         <div className="popProdImage">
           <div className="heartIcon">
-            <PiHeart onClick={() => console.log('okay')} className="heart" />
+            <PiHeart onClick={handleIsLike} className="heart" />
           </div>
           {
             prodImage ? <img

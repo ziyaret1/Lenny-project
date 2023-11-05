@@ -1,5 +1,5 @@
 import "./signOut.scss";
-import userPhoto from "../../assets/images/profilePhoto.png";
+// import userPhoto from "../../assets/images/profilePhoto.png";
 import balanceIcon from "../../assets/icons/walletBalance.png";
 import coinsIcon from "../../assets/icons/coin.png";
 import purchaseIcon from "../../assets/icons/purchase.png";
@@ -21,11 +21,19 @@ const SignOut = ({setOpenLogout, setOpen}) => {
     setOpen(false)
   }
 
+  const firstLetter = userDatas.username
+  ? userDatas.username.charAt(0).toUpperCase()
+  : "";
+
+
   return (
     <div className="signOut-container">
       <div className="userInfo">
         <div className="userPhoto">
-          <img src={userPhoto} alt="" />
+          {/* <img src={userPhoto} alt="" /> */}
+          <p className="userAvatar">
+            {firstLetter}
+          </p>
         </div>
         <div className="userName">
           <h3>{userDatas.username}</h3>

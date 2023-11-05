@@ -4,7 +4,8 @@ import { CiSearch } from "react-icons/ci";
 import { BiSolidUser } from "react-icons/bi";
 import shoppingCart from "../../assets/icons/shopping-cart.png";
 import notification from "../../assets/icons/notification.png";
-import message from "../../assets/icons/sms.png";
+// import message from "../../assets/icons/sms.png";
+import {BsHeartFill} from 'react-icons/bs'
 // import userPhoto from "../../assets/images/profilePhoto.png";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
@@ -32,17 +33,15 @@ const style = {
   outline: "none",
 };
 
-const Header = () => {
+const Header = () => { 
 
   const {cart} = useSelector((state) => state.shopCard)
 
   const [openSignIn, setopenSignIn] = useState(false);
   const [openSignUp, setOpenSignUp] = useState(false);
   const [openSuccess, setOpenSuccess] = useState(false);
-  // const [openUnsuccess, setOpenUnsuccess] = useState(false);
   const [openLogout, setOpenLogout] = useState(false);
   const [open, setOpen] = React.useState(false);
-
   const handleOpen = () => {
     setopenSignIn(true);
     setOpen(true);
@@ -75,6 +74,13 @@ const Header = () => {
     setSearchInput("");
   };
 
+  const scrollToCardProd = () => {
+    window.scrollTo({
+      top: 230,
+      behavior: "smooth",
+    });
+  }
+
   //! AUTH
   const { logToken, userDatas } = useSelector((state) => state.auth);
   const firstLetter = userDatas.username
@@ -99,7 +105,7 @@ const Header = () => {
               onChange={handleOnSearchChange}
             />
           </form>
-        </div>
+        </div> 
         <div className="searchResults">
           {searchInput &&
             searchDatas?.data?.map(({ id, attributes }) => {
@@ -131,17 +137,19 @@ const Header = () => {
         </div>
       </div>
       <div className="basket-user">
-        <Link className="linkBasket" to="/shopcard">
-          <img src={shoppingCart} className="basket" alt="" />
+        <Link className="linkBasket" to="/shopcard" onClick={scrollToCardProd}>
+          <img src={shoppingCart} className="basket" alt=""/>
         </Link>
         {
           cart.length > 0 ? <p className="productInCart">{cart.length}</p> : null
         }
-        {/* <p className="productInCart">6</p> */}
         <img src={notification} className="notification" alt="" />
-        <img src={message} className="message" alt="" />
+        {/* <img src={message} className="message" alt="" /> */}
+        <Link className="link" to="/favourites">
+        <BsHeartFill className="heartFav"/>
+        </Link>
+        
         <div className="borderHead"></div>
-        {/* <BiSolidUser className="user" onClick={handleOpen} /> */}
         <Modal
           open={open}
           onClose={handleClose}
@@ -172,7 +180,7 @@ const Header = () => {
             )}
           </Box>
         </Modal>
-        {/* <img className="hambMenu" src={hambMenu} alt="" /> */}
+
         {logToken ? (
           <p className="userAvatar" onClick={handleOpenLogout}>
             {firstLetter}
@@ -180,6 +188,7 @@ const Header = () => {
         ) : (
           <BiSolidUser className="user" onClick={handleOpen} />
         )}
+
         {openLogout && (
           <SignOut setOpenLogout={setOpenLogout} setOpen={setOpen} />
         )}

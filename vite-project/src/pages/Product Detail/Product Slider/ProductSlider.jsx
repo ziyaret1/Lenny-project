@@ -14,6 +14,7 @@ const ProductSlider = ({ productId }) => {
 
   const [loading, setLoading] = useState(true);
 
+  
 
   const dispatch = useDispatch()
   const handleSendCard = () => {
@@ -24,8 +25,15 @@ const ProductSlider = ({ productId }) => {
       productPrice: singleProd?.attributes?.price,
       productImg: singleProd?.attributes?.image?.data[0].attributes?.url,
       productOriginalPrice: singleProd?.attributes?.price,
+      quantityProduct: 1,
+      checked: false
       }
       ));
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
   };
 
   //! example

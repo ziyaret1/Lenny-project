@@ -5,7 +5,7 @@ import { BiLogoFacebook } from "react-icons/bi";
 import { PiEye, PiEyeSlash } from "react-icons/pi";
 import { fetchAuthRegister } from "../../../Redux/reducer/Auth/authThunk";
 import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import authReducer from '../../../Redux/reducer/Auth/authReducer'
 
 const SignUp = ({setOpenSuccess,  setOpenSignUp, setopenSignIn}) => {
   // const {jwtToken} = useSelector((state) => state.auth)
@@ -17,9 +17,10 @@ const SignUp = ({setOpenSuccess,  setOpenSignUp, setopenSignIn}) => {
 
   const dispatch = useDispatch(); 
    
-  const { jwtToken, resError} = useSelector((state) => state.auth)
+  const { jwtToken} = useSelector((state) => state.auth)
   const [hasToken, setHasToken] = React.useState(false); // Local state variable
   const [haveResError, setHaveResError] = React.useState(false);
+  const [loading, setLoading] = React.useState(false)
 
   console.log(hasToken, 'ujassssssssssssssss');
   console.log(jwtToken, 'jwtToooken');
@@ -32,15 +33,30 @@ const SignUp = ({setOpenSuccess,  setOpenSignUp, setopenSignIn}) => {
   });
   console.log(regDatas);
 
-  const handleOnSubmit = (e) => { 
-    e.preventDefault();
-    dispatch(fetchAuthRegister(regDatas));
-    if (resError) {
-      setHaveResError(true);
-    } else {
-      setHaveResError(false);
-    }
+  // const handleOnSubmit = (e) => { 
+  //   e.preventDefault();
+  //   dispatch(fetchAuthRegister(regDatas));
+  //   if (resError) {
+  //     setHaveResError(true);
+  //   } else {
+  //     setHaveResError(false);
+  //   }
+  // }
+
+  //! gpt try
+  const handleOnSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true)
+  const registerResult = await dispatch(fetchAuthRegister(regDatas));
+    setLoading(false)
+  if (fetchAuthRegister.fulfilled.match(registerResult)) {
+    const jwtToken = registerResult.payload.jwt; // Assuming the JWT token is available in the response
+    dispatch(authReducer.actions.updateJwtToken(jwtToken));
+    setHaveResError(false);
+  } else {
+    setHaveResError(true);
   }
+};
 
   //! FIRST WAY (which gives some error)
   // React.useEffect(() => {
@@ -59,6 +75,7 @@ const SignUp = ({setOpenSuccess,  setOpenSignUp, setopenSignIn}) => {
       setHasToken(true);
     }
   }, [jwtToken]);
+
   React.useEffect(() => {
     if (hasToken) {
       setOpenSignUp(false);
@@ -80,6 +97,12 @@ const SignUp = ({setOpenSuccess,  setOpenSignUp, setopenSignIn}) => {
 
   return (
     <div className="signUp-container">
+       {
+        loading &&  
+        <div className="loading-overlay">
+        <p className="loading" color="#1E4C2F" />
+      </div>
+      }
       <div className="signUp-title">
         <h2>Sign Up</h2>
       </div>

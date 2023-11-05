@@ -37,9 +37,8 @@ export const categoryReducer = createSlice({
       state.loading = false
       state.categories = action.payload
     });
-    builder.addCase(getCategories.rejected, (state, action) => {
+    builder.addCase(getCategories.rejected, (state) => {
       state.loading = false
-      console.log(action.payload);
     });
 
     //! PRODUCTBYCATEGORYID

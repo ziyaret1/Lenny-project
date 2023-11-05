@@ -4,7 +4,7 @@ import {PiCheckBold} from 'react-icons/pi'
 const RegisterSuccess = ({setopenSignIn, setOpenSuccess}) => {
 
   const handleGoLogin = () => {
-    setopenSignIn(true)
+    setopenSignIn(true) 
     setOpenSuccess(false)
   }
   

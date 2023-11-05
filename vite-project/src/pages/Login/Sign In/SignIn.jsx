@@ -5,8 +5,7 @@ import { PiEye, PiEyeSlash } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAuthLogin } from "../../../Redux/reducer/Auth/authThunk";
 import { BiErrorAlt } from 'react-icons/bi'
-// import PropagateLoader from "react-spinners/PropagateLoader";
-// <PropagateLoader className="loading" color="#1E4C2F" />
+import { updateJwtToken } from "../../../Redux/reducer/Auth/authReducer";
 
 const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -17,8 +16,9 @@ const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
 
   const dispatch = useDispatch();
 
-  const { logToken, logError } = useSelector((state) => state.auth);
+  const { logToken, error } = useSelector((state) => state.auth);
 
+  console.log(error, 'errror');
   const [logData, setLogData] = React.useState({
     identifier: "",
     password: "",
@@ -31,27 +31,44 @@ const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
     }));
   };
 
-  // const navigation = useNavigate()
   const [hasLogToken, setHasLogToken] = useState(false);
   const [haveError, setHaveError] = useState(false);
 
-  const handleOnSubmit = (e) => {
+
+  // const handleOnSubmit = (e) => { 
+  //   e.preventDefault();
+  //   dispatch(fetchAuthLogin(logData));
+  //   if (error) {
+  //     setHaveError(true);
+  //   } else {
+  //     setHaveError(false);
+  //   }
+  // };
+
+  const [loading, setLoading] = useState(false)
+
+  //! gpt try
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
-    dispatch(fetchAuthLogin(logData));
-    if (logError) {
-      setHaveError(true);
-    } else {
+    setLoading(true)
+    const loginResult = await dispatch(fetchAuthLogin(logData));
+    setLoading(false)
+    if (fetchAuthLogin.fulfilled.match(loginResult)) {
+      const jwtToken = loginResult.payload.jwt; 
+      dispatch(updateJwtToken(jwtToken));
       setHaveError(false);
+    } else {
+      setHaveError(true);
     }
   };
-
-  console.log(logError, "hasLogERROR");
-
+ 
+  //!
   React.useEffect(() => {
     if (logToken) {
       setHasLogToken(true);
     }
   }, [logToken]);
+
   React.useEffect(() => {
     if (hasLogToken) {
       setopenSignIn(false);
@@ -66,6 +83,12 @@ const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
 
   return (
     <div className="signIn-container">
+      {
+        loading &&  
+        <div className="loading-overlay">
+        <p className="loading" color="#1E4C2F" />
+      </div>
+      }
       <div className="container-title">
         <h2>Sign In</h2>
       </div>
