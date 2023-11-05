@@ -3,7 +3,6 @@ import "./choicesProductCard.scss";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import {
-  addToCart,
   decrementProduct,
   incrementProduct,
   removeFromCart,
@@ -12,7 +11,7 @@ import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const ChoicesProductCard = ({
-  productImage,
+  productImage, 
   productName,
   productPrise,
   productId,
@@ -36,12 +35,12 @@ const ChoicesProductCard = ({
   };
 
   //!
-  // const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
-  // const handleCheckboxChange = () => {
-  //   setIsChecked(!isChecked);
-  //   console.log(productId);
-  // };
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+    console.log(productId, 'ooooiiii');
+  };
 
   return (
     <div className="choicesProductCard-container">
@@ -51,6 +50,7 @@ const ChoicesProductCard = ({
             type="checkbox"
             className="choiceInput"
             checked={checked}
+            onChange={handleCheckboxChange}
           />
         </label>
         <Link

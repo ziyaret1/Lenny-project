@@ -12,8 +12,6 @@ import { setCurrentObj } from "../../../Redux/reducer/Categories/categoryReducer
 const FilterOption = () => {
   const dispatch = useDispatch();
 
-  
- 
   return (
     <div className="fullContainer">
       <div className="filterOption-cont">

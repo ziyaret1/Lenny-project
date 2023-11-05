@@ -3,7 +3,7 @@ import logitechLogo from "../../../assets/images/logitechMiniLogo.png";
 import ChoicesProductCard from "./ChoicesProductCard";
 import { useSelector } from "react-redux";
 import React from 'react'
-
+ 
 const ChoicesProduct = () => {
   const { cart } = useSelector((state) => state.shopCard);
   console.log(cart, "shopCartt");
@@ -26,7 +26,7 @@ const ChoicesProduct = () => {
             productPrice,
             productImg,
             quantityProduct,
-            // checked
+            //checked
           }) => {
             return (
               <React.Fragment key={productId}>

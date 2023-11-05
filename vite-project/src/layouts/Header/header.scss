@@ -334,7 +334,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 24px;
+        text-shadow: 1px 1px 1px 1px black;
+        font-size: 22px;
+        text-align: center;
         cursor: pointer;
         color: white;
       }
@@ -347,6 +349,12 @@
       .message {
         width: 24px;
         height: 24px;
+        color: $iconGrey;
+        cursor: pointer;
+      }
+      .heartFav{
+        width: 23px;
+        height: 23px;
         color: $iconGrey;
         cursor: pointer;
       }

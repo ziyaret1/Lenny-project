@@ -55,5 +55,12 @@
         }
       }
     }
+    .productsList {
+      gap: 16px;
+      .borderBottom {
+        margin-top: 10px;
+      }
+    }
+    
   }
 }

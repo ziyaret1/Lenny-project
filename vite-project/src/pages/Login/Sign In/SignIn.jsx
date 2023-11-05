@@ -77,8 +77,8 @@ const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
   }, [hasLogToken, setOpen, setOpenSignUp, setopenSignIn]);
 
   const handleCloseSignIn = () => {
-    setopenSignIn(false);
     setOpenSignUp(true);
+    setopenSignIn(false)
   };
 
   return (

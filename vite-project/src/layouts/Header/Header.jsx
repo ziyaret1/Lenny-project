@@ -4,8 +4,8 @@ import { CiSearch } from "react-icons/ci";
 import { BiSolidUser } from "react-icons/bi";
 import shoppingCart from "../../assets/icons/shopping-cart.png";
 import notification from "../../assets/icons/notification.png";
-// import message from "../../assets/icons/sms.png";
-import {BsHeartFill} from 'react-icons/bs'
+import message from "../../assets/icons/sms.png";
+// import {BsHeartFill} from 'react-icons/bs'
 // import userPhoto from "../../assets/images/profilePhoto.png";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
@@ -144,11 +144,10 @@ const Header = () => {
           cart.length > 0 ? <p className="productInCart">{cart.length}</p> : null
         }
         <img src={notification} className="notification" alt="" />
-        {/* <img src={message} className="message" alt="" /> */}
-        <Link className="link" to="/favourites">
+        <img src={message} className="message" alt="" />
+        {/* <Link className="link" to="/favourites">
         <BsHeartFill className="heartFav"/>
-        </Link>
-        
+        </Link> */}
         <div className="borderHead"></div>
         <Modal
           open={open}
