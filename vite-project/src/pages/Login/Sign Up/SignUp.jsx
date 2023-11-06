@@ -1,39 +1,32 @@
 import React from "react";
 import "./signUp.scss";
-import {BiErrorAlt} from 'react-icons/bi'
+import { BiErrorAlt } from "react-icons/bi";
 import { BiLogoFacebook } from "react-icons/bi";
 import { PiEye, PiEyeSlash } from "react-icons/pi";
 import { fetchAuthRegister } from "../../../Redux/reducer/Auth/authThunk";
 import { useDispatch, useSelector } from "react-redux";
-import authReducer from '../../../Redux/reducer/Auth/authReducer'
+import authReducer from "../../../Redux/reducer/Auth/authReducer";
 
-const SignUp = ({setOpenSuccess,  setOpenSignUp, setopenSignIn}) => {
-  // const {jwtToken} = useSelector((state) => state.auth)
-  // const [seePassword, setSeePassword] = React.useState("");
+const SignUp = ({ setOpenSuccess, setOpenSignUp, setopenSignIn }) => {
   const [showPassword, setShowPassword] = React.useState(false);
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const dispatch = useDispatch(); 
-   
-  const { jwtToken} = useSelector((state) => state.auth)
+  const dispatch = useDispatch();
+
+  const { jwtToken } = useSelector((state) => state.auth);
   const [hasToken, setHasToken] = React.useState(false); // Local state variable
   const [haveResError, setHaveResError] = React.useState(false);
-  const [loading, setLoading] = React.useState(false)
-
-  console.log(hasToken, 'ujassssssssssssssss');
-  console.log(jwtToken, 'jwtToooken');
-
+  const [loading, setLoading] = React.useState(false);
 
   const [regDatas, setRegDatas] = React.useState({
     username: "",
     email: "",
     password: "",
   });
-  console.log(regDatas);
 
-  // const handleOnSubmit = (e) => { 
+  // const handleOnSubmit = (e) => {
   //   e.preventDefault();
   //   dispatch(fetchAuthRegister(regDatas));
   //   if (resError) {
@@ -45,18 +38,18 @@ const SignUp = ({setOpenSuccess,  setOpenSignUp, setopenSignIn}) => {
 
   //! gpt try
   const handleOnSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true)
-  const registerResult = await dispatch(fetchAuthRegister(regDatas));
-    setLoading(false)
-  if (fetchAuthRegister.fulfilled.match(registerResult)) {
-    const jwtToken = registerResult.payload.jwt; // Assuming the JWT token is available in the response
-    dispatch(authReducer.actions.updateJwtToken(jwtToken));
-    setHaveResError(false);
-  } else {
-    setHaveResError(true);
-  }
-};
+    e.preventDefault();
+    setLoading(true);
+    const registerResult = await dispatch(fetchAuthRegister(regDatas));
+    setLoading(false);
+    if (fetchAuthRegister.fulfilled.match(registerResult)) {
+      const jwtToken = registerResult.payload.jwt; // Assuming the JWT token is available in the response
+      dispatch(authReducer.actions.updateJwtToken(jwtToken));
+      setHaveResError(false);
+    } else {
+      setHaveResError(true);
+    }
+  };
 
   //! FIRST WAY (which gives some error)
   // React.useEffect(() => {
@@ -91,27 +84,26 @@ const SignUp = ({setOpenSuccess,  setOpenSignUp, setopenSignIn}) => {
   };
 
   const handleOpenHaveAccount = () => {
-    setOpenSignUp(false)
-    setopenSignIn(true)
-  }
+    setOpenSignUp(false);
+    setopenSignIn(true);
+  };
 
   return (
     <div className="signUp-container">
-       {
-        loading &&  
+      {loading && (
         <div className="loading-overlay">
-        <p className="loading" color="#1E4C2F" />
-      </div>
-      }
+          <p className="loading" color="#1E4C2F" />
+        </div>
+      )}
       <div className="signUp-title">
         <h2>Sign Up</h2>
       </div>
       <div className="signUpInput">
-          {haveResError ? (
-         <p className="warningErrorRegister">
-         <BiErrorAlt className="errorIcon"/>
-       The email address is unavailable. Please try another email address.!
-           </p>
+        {haveResError ? (
+          <p className="warningErrorRegister">
+            <BiErrorAlt className="errorIcon" />
+            The email address is unavailable. Please try another email address.!
+          </p>
         ) : null}
         <form onSubmit={handleOnSubmit}>
           <label htmlFor="">Name</label>
@@ -150,30 +142,6 @@ const SignUp = ({setOpenSuccess,  setOpenSignUp, setopenSignIn}) => {
               )}
             </span>
           </div>
-          {/* <div className="genderInput">
-      <h4>Gender Selection</h4>
-      <label>
-        <input
-          type="radio"
-          name="male"
-          value={regDatas.male}
-            onChange={handleChangeValue}
-          // value="male"
-          checked={regDatas.male === 'male'}
-          // onChange={handleGenderChange}
-        />
-        Male
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="female"
-          value={regDatas.female}
-          onChange={handleChangeValue}
-        />
-        Female
-      </label>
-      </div> */}
         </form>
         <span onClick={handleOpenHaveAccount}>Have an account?</span>
       </div>

@@ -22,7 +22,6 @@ const Breadcrumb = () => {
   React.useEffect(() => {
     const getSingleProd = async () => {
       const res = await getSingleProduct(productId);
-      console.log(res.data, "prooo");
       setSingleProdee(res.data);
     };
     getSingleProd();
@@ -69,7 +68,7 @@ const Breadcrumb = () => {
           className={
             location.pathname === `/productdetail/${productId}`
               ? "breadcrumb-active"
-              :"breadcrumb-not-active"
+              : "breadcrumb-not-active"
           }
         >
           {singleProdee?.attributes?.title}
@@ -77,7 +76,7 @@ const Breadcrumb = () => {
       </div>
       <div>
         <Link
-        to="/detailarticle"
+          to="/detailarticle"
           className={
             location.pathname === "/detailarticle"
               ? "breadcrumb-active"

@@ -7,27 +7,27 @@ const initialState = {
   userDatas: {},
   user: null,
   // resError: "",
-  status: "", 
+  status: "",
   error: ""
 }
 // Sinxron function`lar bura yazilir, mentiq daima buraya yazilir, asagidakilar action`dir
 export const authReducer = createSlice({
   name: 'auth',
-  initialState, 
+  initialState,
   reducers: {
     resetAuthState: (state) => {
       state.jwtToken = "";
       state.logToken = "",
-      state.userDatas = {};
+        state.userDatas = {};
       state.user = null;
       // state.resError = "",
       // state.logError = "",
       state.status = "";
       state.error = ""
     },
-      updateJwtToken: (state, action) => {
-        state.jwtToken = action.payload;
-      },
+    updateJwtToken: (state, action) => {
+      state.jwtToken = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAuthRegister.pending, (state) => {
@@ -46,7 +46,7 @@ export const authReducer = createSlice({
     });
 
     //! LOGIN  
-    
+
     builder.addCase(fetchAuthLogin.pending, (state) => {
       state.status = "pending"
     });
@@ -63,6 +63,6 @@ export const authReducer = createSlice({
   }
 })
 
-export const {resetAuthState, updateJwtToken} = authReducer.actions
+export const { resetAuthState, updateJwtToken } = authReducer.actions
 
 export default authReducer.reducer

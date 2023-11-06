@@ -5,7 +5,6 @@ import { getSingleProduct } from "../../../api/product.js";
 
 const DetailProduct = ({ productId }) => {
   const [singleProd, setSingleProd] = useState();
-  console.log(singleProd, "singpro");
 
   React.useEffect(() => {
     const getSingleProd = async () => {

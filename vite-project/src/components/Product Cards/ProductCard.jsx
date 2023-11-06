@@ -19,7 +19,6 @@ const ProductCard = ({
 
   const handleIsLike = (e) => {
     e.preventDefault(); 
-    console.log('cliii');
   }
 
   return (

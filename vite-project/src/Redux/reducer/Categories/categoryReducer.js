@@ -13,7 +13,7 @@ const initialState = {
     sort: "",
     rating: false,
     id: "",
-    page: "" 
+    page: ""
   }
 }
 
@@ -21,12 +21,12 @@ export const categoryReducer = createSlice({
   name: 'categories',
   initialState,
   reducers: { // Sinxron function
-  setCurrentPage: (state, action) => {
-    state.currentPage = action.payload
-  },
-  setCurrentObj: (state, action) => {
-    state.filterObj[action.payload.name] = action.payload.value
-  }
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload
+    },
+    setCurrentObj: (state, action) => {
+      state.filterObj[action.payload.name] = action.payload.value
+    }
   },
   extraReducers: (builder) => {
     //! GETCATEGORIES
@@ -63,18 +63,18 @@ export const categoryReducer = createSlice({
     builder.addCase(getFilteredProduct.rejected, (state) => {
       state.loading = false
     });
-  }, 
+  },
 
 })
 
 //! actionlardan cixartmag ucun ve oturmek ucun ise dispatch lazimdir (app.jsx`de)
-export const {setCurrentPage, setCurrentObj} = categoryReducer.actions
+export const { setCurrentPage, setCurrentObj } = categoryReducer.actions
 
 export default categoryReducer.reducer
 
 
 
 //! for different color
- // for different color
-    // state.filterObj.color.push(action.payload);
-    // state.filterObj.color.filter((color) => color != action.payload)
+// for different color
+// state.filterObj.color.push(action.payload);
+// state.filterObj.color.filter((color) => color != action.payload)

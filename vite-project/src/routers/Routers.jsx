@@ -10,7 +10,6 @@ import DetailArticle from "../pages/Detail Article/DetailArticle";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import SignUp from "../pages/Login/Sign Up/SignUp";
-import FavouriteProducts from "../pages/Favourite Products/FavouriteProducts";
 
 function Routers() {
   const { pathname } = useLocation();
@@ -29,7 +28,6 @@ function Routers() {
         <Route path="/article" element={<Article />} />
         <Route path="/detailarticle" element={<DetailArticle />} />
         <Route path="register" element={<SignUp />} />
-        <Route path="/favourites" element={<FavouriteProducts/>}/>
       </Routes>
       <Footer />
     </>

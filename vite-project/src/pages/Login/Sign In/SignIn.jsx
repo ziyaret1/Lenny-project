@@ -4,7 +4,7 @@ import { BiLogoFacebook } from "react-icons/bi";
 import { PiEye, PiEyeSlash } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAuthLogin } from "../../../Redux/reducer/Auth/authThunk";
-import { BiErrorAlt } from 'react-icons/bi'
+import { BiErrorAlt } from "react-icons/bi";
 import { updateJwtToken } from "../../../Redux/reducer/Auth/authReducer";
 
 const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
@@ -16,9 +16,8 @@ const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
 
   const dispatch = useDispatch();
 
-  const { logToken, error } = useSelector((state) => state.auth);
+  const { logToken } = useSelector((state) => state.auth);
 
-  console.log(error, 'errror');
   const [logData, setLogData] = React.useState({
     identifier: "",
     password: "",
@@ -34,8 +33,7 @@ const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
   const [hasLogToken, setHasLogToken] = useState(false);
   const [haveError, setHaveError] = useState(false);
 
-
-  // const handleOnSubmit = (e) => { 
+  // const handleOnSubmit = (e) => {
   //   e.preventDefault();
   //   dispatch(fetchAuthLogin(logData));
   //   if (error) {
@@ -45,23 +43,23 @@ const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
   //   }
   // };
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   //! gpt try
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
     const loginResult = await dispatch(fetchAuthLogin(logData));
-    setLoading(false)
+    setLoading(false);
     if (fetchAuthLogin.fulfilled.match(loginResult)) {
-      const jwtToken = loginResult.payload.jwt; 
+      const jwtToken = loginResult.payload.jwt;
       dispatch(updateJwtToken(jwtToken));
       setHaveError(false);
     } else {
       setHaveError(true);
     }
   };
- 
+
   //!
   React.useEffect(() => {
     if (logToken) {
@@ -78,24 +76,23 @@ const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
 
   const handleCloseSignIn = () => {
     setOpenSignUp(true);
-    setopenSignIn(false)
+    setopenSignIn(false);
   };
 
   return (
     <div className="signIn-container">
-      {
-        loading &&  
+      {loading && (
         <div className="loading-overlay">
-        <p className="loading" color="#1E4C2F" />
-      </div>
-      }
+          <p className="loading" color="#1E4C2F" />
+        </div>
+      )}
       <div className="container-title">
         <h2>Sign In</h2>
       </div>
       <div className="containerInput">
         {haveError ? (
           <p className="warningForError">
-            <BiErrorAlt className="errorIcon"/>
+            <BiErrorAlt className="errorIcon" />
             Your email address or password is incorrect!
           </p>
         ) : null}

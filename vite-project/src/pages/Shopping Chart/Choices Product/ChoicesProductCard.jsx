@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./choicesProductCard.scss";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
@@ -6,21 +6,20 @@ import {
   decrementProduct,
   incrementProduct,
   removeFromCart,
+  toggleCheckbox,
 } from "../../../Redux/reducer/Shopping Card/shopCardReducer";
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const ChoicesProductCard = ({
-  productImage, 
+  productImage,
   productName,
   productPrise,
   productId,
   quantityProduct,
-  checked
+  checked,
 }) => {
   const dispatch = useDispatch();
-
-  const {cart} = useSelector((state) => state.shopCard)
 
   const handleOnClickTrash = () => {
     dispatch(removeFromCart(productId));
@@ -36,10 +35,10 @@ const ChoicesProductCard = ({
 
   //!
   const [isChecked, setIsChecked] = useState(false);
-
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-    console.log(productId, 'ooooiiii');
+    // Dispatch an action with productId and checked state
+    dispatch(toggleCheckbox({ productId, checked: !isChecked }));
   };
 
   return (

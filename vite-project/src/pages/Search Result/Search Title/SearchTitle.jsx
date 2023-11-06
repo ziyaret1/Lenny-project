@@ -4,7 +4,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import filterIcon from '../../../assets/icons/filter.png'
 import React, { useState } from "react";
 import FilterOption from '../Filter option/FilterOption'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getProdbyCategoryId } from "../../../Redux/reducer/Categories/categoryThunk";
 import { useParams } from "react-router-dom";
 
@@ -15,18 +15,14 @@ const SearchTitle = () => {
     setOpenFilter(!openFilter);
   };
 
-
   const params = useParams() 
   const dispatch = useDispatch()
-  const {categories} = useSelector((state) => state.categories)
   
   React.useEffect(() => {
     dispatch(getProdbyCategoryId({
       id: params.categoryId,
     }))
   }, [ dispatch, params.categoryId])
-
-  console.log(categories, 'uuuu');
 
   return (
     <div className="searchTitle-container">

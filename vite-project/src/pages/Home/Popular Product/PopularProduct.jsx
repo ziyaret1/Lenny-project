@@ -26,10 +26,6 @@ const PopularProduct = () => {
     setLoading(false);
   }, [limit, dispatch]);
 
-  console.log(products, "limitedProd");
-
-  
-
   return (
     <div className="popularProduct-container">
       <div className="popProduct-header">
@@ -47,7 +43,8 @@ const PopularProduct = () => {
                 key={products.id}
                 className="popProductCards"
                 to={`/productdetail/${products.id}`}
-              ><ProductCard
+              >
+                <ProductCard
                   prodImage={
                     products?.attributes?.image?.data[0]?.attributes?.url
                   }

@@ -5,8 +5,6 @@ import { BiSolidUser } from "react-icons/bi";
 import shoppingCart from "../../assets/icons/shopping-cart.png";
 import notification from "../../assets/icons/notification.png";
 import message from "../../assets/icons/sms.png";
-// import {BsHeartFill} from 'react-icons/bs'
-// import userPhoto from "../../assets/images/profilePhoto.png";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import SignUp from "../../pages/Login/Sign Up/SignUp";
@@ -17,6 +15,8 @@ import Modal from "@mui/material/Modal";
 import SignIn from "../../pages/Login/Sign In/SignIn";
 import { useDispatch, useSelector } from "react-redux";
 import { getSearchingData } from "../../Redux/reducer/Search/searchThunk";
+// import {BsHeartFill} from 'react-icons/bs'
+// import userPhoto from "../../assets/images/profilePhoto.png";
 
 //! MODAL
 const style = {
@@ -32,10 +32,8 @@ const style = {
   p: 0,
   outline: "none",
 };
-
-const Header = () => { 
-
-  const {cart} = useSelector((state) => state.shopCard)
+const Header = () => {
+  const { cart } = useSelector((state) => state.shopCard);
 
   const [openSignIn, setopenSignIn] = useState(false);
   const [openSignUp, setOpenSignUp] = useState(false);
@@ -73,13 +71,12 @@ const Header = () => {
   const handleDeleteInput = () => {
     setSearchInput("");
   };
-
   const scrollToCardProd = () => {
     window.scrollTo({
       top: 230,
       behavior: "smooth",
     });
-  }
+  };
 
   //! AUTH
   const { logToken, userDatas } = useSelector((state) => state.auth);
@@ -105,7 +102,7 @@ const Header = () => {
               onChange={handleOnSearchChange}
             />
           </form>
-        </div> 
+        </div>
         <div className="searchResults">
           {searchInput &&
             searchDatas?.data?.map(({ id, attributes }) => {
@@ -138,16 +135,14 @@ const Header = () => {
       </div>
       <div className="basket-user">
         <Link className="linkBasket" to="/shopcard" onClick={scrollToCardProd}>
-          <img src={shoppingCart} className="basket" alt=""/>
+          <img src={shoppingCart} className="basket" alt="" />
         </Link>
-        {
-          cart.length > 0 ? <p className="productInCart">{cart.length}</p> : null
-        }
+        {cart.length > 0 ? (
+          <p className="productInCart">{cart.length}</p>
+        ) : null}
         <img src={notification} className="notification" alt="" />
         <img src={message} className="message" alt="" />
-        {/* <Link className="link" to="/favourites">
-        <BsHeartFill className="heartFav"/>
-        </Link> */}
+        {/* <BsHeartFill className="heartFav"/> */}
         <div className="borderHead"></div>
         <Modal
           open={open}

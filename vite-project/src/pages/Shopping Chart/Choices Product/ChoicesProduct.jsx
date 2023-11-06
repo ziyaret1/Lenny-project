@@ -2,14 +2,12 @@ import "./choicesProduct.scss";
 import logitechLogo from "../../../assets/images/logitechMiniLogo.png";
 import ChoicesProductCard from "./ChoicesProductCard";
 import { useSelector } from "react-redux";
-import React from 'react'
- 
+import React from "react";
+
 const ChoicesProduct = () => {
   const { cart } = useSelector((state) => state.shopCard);
-  console.log(cart, "shopCartt");
 
-
-  return ( 
+  return (
     <div className="choicesProduct-container">
       <div className="productOwner">
         <img src={logitechLogo} alt="" />
@@ -26,7 +24,7 @@ const ChoicesProduct = () => {
             productPrice,
             productImg,
             quantityProduct,
-            //checked
+            checked,
           }) => {
             return (
               <React.Fragment key={productId}>
@@ -36,7 +34,7 @@ const ChoicesProduct = () => {
                   productName={productName}
                   productPrise={productPrice}
                   quantityProduct={quantityProduct}
-                  // checked={checked}
+                  checked={checked}
                 />
                 <div className="borderBottom"></div>
               </React.Fragment>

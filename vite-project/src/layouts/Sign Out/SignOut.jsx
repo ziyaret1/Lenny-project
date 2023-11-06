@@ -13,7 +13,6 @@ const SignOut = ({setOpenLogout, setOpen}) => {
 
   const {userDatas} = useSelector((state) => state.auth)
   const dispatch = useDispatch()
-  console.log(userDatas, 'logoutUserdataas');
 
   const clickSignOut = () => { 
     dispatch(resetAuthState());
@@ -24,7 +23,6 @@ const SignOut = ({setOpenLogout, setOpen}) => {
   const firstLetter = userDatas.username
   ? userDatas.username.charAt(0).toUpperCase()
   : "";
-
 
   return (
     <div className="signOut-container">

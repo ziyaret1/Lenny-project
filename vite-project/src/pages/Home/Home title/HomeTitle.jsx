@@ -9,21 +9,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import React from "react";
-import { getProducts } from "../../../api/product";
 
 const HomeTitle = () => {
-  const [products, setProducts] = React.useState([]);
-  console.log(products, "product");
-
-  React.useEffect(() => {
-    async function getAllProduct() {
-      const data2 = await getProducts();
-      setProducts(data2);
-    }
-    getAllProduct();
-  }, []);
-
   const scrollOnClick = () => {
     window.scrollTo({
       top: 500,

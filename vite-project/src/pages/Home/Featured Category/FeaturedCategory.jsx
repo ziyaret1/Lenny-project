@@ -8,19 +8,16 @@ import "swiper/css/scrollbar";
 import React from "react";
 import { getCategories } from "../../../Redux/reducer/Categories/categoryThunk";
 import { Link } from "react-router-dom";
-import {useDispatch} from 'react-redux'
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
-
 const FeaturedCategory = () => {
- 
-  const dispatch = useDispatch()
-  const {categories} = useSelector((state) => state.categories)
-  
+  const dispatch = useDispatch();
+  const { categories } = useSelector((state) => state.categories);
+
   React.useEffect(() => {
-    dispatch(getCategories())
+    dispatch(getCategories());
   }, [dispatch]);
-  console.log(categories, "data");
 
   return (
     <div className="featuredCategory-container">
