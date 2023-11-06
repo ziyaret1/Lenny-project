@@ -77,6 +77,10 @@ const Header = () => {
       behavior: "smooth",
     });
   };
+ 
+  const closeLogoutOverlay = () => {
+    setOpenLogout(false)
+  };
 
   //! AUTH
   const { logToken, userDatas } = useSelector((state) => state.auth);
@@ -140,8 +144,12 @@ const Header = () => {
         {cart.length > 0 ? (
           <p className="productInCart">{cart.length}</p>
         ) : null}
-        <img src={notification} className="notification" alt="" />
-        <img src={message} className="message" alt="" />
+        {
+          logToken && <img src={notification} className="notification" alt="" />
+        }
+        {
+          logToken &&  <img src={message} className="message" alt="" />
+        }
         {/* <BsHeartFill className="heartFav"/> */}
         <div className="borderHead"></div>
         <Modal
@@ -184,7 +192,13 @@ const Header = () => {
         )}
 
         {openLogout && (
-          <SignOut setOpenLogout={setOpenLogout} setOpen={setOpen} />
+          
+            <>
+            <div className="overlaySignOut" onClick={closeLogoutOverlay}></div>
+            <SignOut setOpenLogout={setOpenLogout} setOpen={setOpen} />
+            </>
+          
+          
         )}
       </div>
     </div>

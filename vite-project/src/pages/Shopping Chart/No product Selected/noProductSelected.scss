@@ -1,0 +1,40 @@
+@import "../../../assets/styles/variables.scss";
+
+.noProductSelected-container {
+  padding: 3% 5%;
+  border: 1px solid $borderGrey;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  border-radius: 8px;
+  .noProd-cont {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  button {
+    padding: 16px;
+    background-color: white;
+    border: 1px solid $darkGreen;
+    border-radius: 8px;
+    font-size: 16px;
+    color: $darkGreen;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .noProductSelected-container {
+    .noProd-cont {
+      gap: 10px;
+    }
+    button {
+      padding: 6px;
+      font-size: 14px;
+    }
+  }
+}

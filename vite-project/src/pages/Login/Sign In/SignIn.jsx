@@ -5,7 +5,7 @@ import { PiEye, PiEyeSlash } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAuthLogin } from "../../../Redux/reducer/Auth/authThunk";
 import { BiErrorAlt } from "react-icons/bi";
-import { updateJwtToken } from "../../../Redux/reducer/Auth/authReducer";
+import { resetAuthState, updateJwtToken } from "../../../Redux/reducer/Auth/authReducer";
 
 const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -73,8 +73,10 @@ const SignIn = ({ setopenSignIn, setOpenSignUp, setOpen }) => {
       setOpen(false);
     }
   }, [hasLogToken, setOpen, setOpenSignUp, setopenSignIn]);
+  
 
   const handleCloseSignIn = () => {
+    dispatch(resetAuthState())
     setOpenSignUp(true);
     setopenSignIn(false);
   };

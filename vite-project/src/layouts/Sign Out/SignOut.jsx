@@ -13,10 +13,10 @@ const SignOut = ({setOpenLogout, setOpen}) => {
 
   const {userDatas} = useSelector((state) => state.auth)
   const dispatch = useDispatch()
-
+ 
   const clickSignOut = () => { 
     dispatch(resetAuthState());
-    setOpenLogout(false)
+    setOpenLogout(false) 
     setOpen(false)
   }
 

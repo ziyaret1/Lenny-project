@@ -6,7 +6,7 @@ import { PiDotOutlineFill } from "react-icons/pi";
 import React, { useState } from "react";
 import { getLimitedProduct } from "../../api/product";
 import { Link } from "react-router-dom";
-
+ 
 const RelatedProduct = () => {
   const [products, setProducts] = useState([]);
   const [limit] = useState(Number(4));

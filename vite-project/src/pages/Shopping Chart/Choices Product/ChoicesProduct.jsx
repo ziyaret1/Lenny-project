@@ -6,7 +6,7 @@ import React from "react";
 
 const ChoicesProduct = () => {
   const { cart } = useSelector((state) => state.shopCard);
-
+  
   return (
     <div className="choicesProduct-container">
       <div className="productOwner">

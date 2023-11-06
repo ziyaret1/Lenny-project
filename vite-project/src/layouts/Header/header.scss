@@ -5,6 +5,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .overlaySignOut{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 52;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    background: inherit;
+  }
   .input-nav {
     display: flex;
     justify-content: space-between;
@@ -186,7 +196,7 @@
       position: fixed;
       top: 15%;
       right: 5%;
-      z-index: 7;
+      z-index: 55;
     }
   }
   .signUp {
